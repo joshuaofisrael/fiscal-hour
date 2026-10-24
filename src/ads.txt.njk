@@ -1,0 +1,9 @@
+---
+permalink: /ads.txt
+---
+{% if site.adsensePublisher -%}
+google.com, {{ site.adsensePublisher }}, DIRECT, {{ site.adsenseCertificationAuthorityId }}
+{% else -%}
+# FiscalHour ads.txt placeholder. Set adsenseClient in src/_data/site.js before serving ads.
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+{% endif %}

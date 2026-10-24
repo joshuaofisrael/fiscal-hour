@@ -1,0 +1,60 @@
+---
+layout: layouts/base.njk
+kind: home
+title: FiscalHour
+summary: FiscalHour covers markets, the economy, companies, crypto, and personal finance. Sourced news, not investment advice.
+permalink: /
+---
+<header class="home-mast">
+  <div class="wrap">
+    <p class="eyebrow">Markets · Economy · Companies · Crypto · Personal finance</p>
+    <h1>{{ site.name }}</h1>
+    <p class="tagline">{{ site.tagline }}</p>
+    <p class="brand-line">{{ site.brandLine }}</p>
+  </div>
+</header>
+<section class="wrap desk-board" aria-labelledby="desks-heading">
+  <h2 id="desks-heading">Sections</h2>
+  <ol class="desk-list">
+    {% for item in site.categories %}
+    <li>
+      <a class="desk-card" href="{{ ('/category/' ~ item.slug ~ '/') | url }}">
+        <span class="desk-index" aria-hidden="true">0{{ loop.index }}</span>
+        <span class="desk-copy">
+          <strong>{{ item.name }}</strong>
+          <span>{{ item.description }}</span>
+        </span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+<div class="wrap home-grid">
+  <section aria-labelledby="latest-heading">
+    <h2 id="latest-heading">Latest</h2>
+    {% set stories = collections.posts | newsroomPosts | limit(20) %}
+    {% if stories and stories.length %}
+    {% set storyHeading = "h3" %}
+    {% include "partials/story-list.njk" %}
+    {% else %}
+    <p class="empty">No story has been published yet. A story appears here after it is published with a public source list.</p>
+    {% endif %}
+    {% if collections.publishedPosts.length > 20 %}
+    <p class="more-link"><a href="{{ '/archive/' | url }}">All stories</a></p>
+    {% endif %}
+  </section>
+  <aside class="home-rail" aria-labelledby="standards-heading">
+    <h2 id="standards-heading">How we publish</h2>
+    <ol class="process">
+      <li>Name the source in the sentence that uses it.</li>
+      <li>Keep the wording original. Quote briefly and attribute it.</li>
+      <li>Label opinion, analysis, and speculation.</li>
+      <li>Report a company claim as what the company says.</li>
+    </ol>
+    <ul class="trust-list">
+      <li><a href="{{ '/sources-ethics/' | url }}">Sources &amp; Ethics</a></li>
+      <li><a href="{{ '/corrections/' | url }}">Corrections</a></li>
+      <li><a href="{{ '/disclaimer/' | url }}">Not investment advice</a></li>
+    </ul>
+  </aside>
+</div>

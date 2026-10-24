@@ -1,0 +1,34 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="mast">
+  <div class="wrap mast-bar">
+    <a class="brand" href="{{ '/' | url }}"{% if page.url == ("/" | url) %} aria-current="page"{% endif %}>
+      {% include "partials/mark.njk" %}
+      <span class="brand-name">{{ site.name }}</span>
+    </a>
+    <p class="mast-kicker">Financial news</p>
+    <nav class="utility" aria-label="Company">
+      <input class="utility-toggle" id="utility-menu" type="checkbox">
+      <label class="utility-toggle-label" for="utility-menu">
+        <span class="utility-closed">Menu</span>
+        <span class="utility-open">Close</span>
+      </label>
+      <ul class="utility-panel">
+        <li><a href="{{ '/about/' | url }}"{% if page.url == ("/about/" | url) %} aria-current="page"{% endif %}>About</a></li>
+        <li><a href="{{ '/contact/' | url }}"{% if page.url == ("/contact/" | url) %} aria-current="page"{% endif %}>Contact</a></li>
+        <li><a href="{{ '/archive/' | url }}"{% if page.url == ("/archive/" | url) %} aria-current="page"{% endif %}>Archive</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="mast-rule" aria-hidden="true"></div>
+  <nav class="sections" aria-label="Sections">
+    <div class="wrap section-scroller">
+      <ul class="section-list">
+        {% for item in site.categories %}
+        <li>
+          <a href="{{ ('/category/' ~ item.slug ~ '/') | url }}"{% if (desk and desk.slug == item.slug) or category == item.name %} aria-current="page"{% endif %}>{{ item.name }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+</header>

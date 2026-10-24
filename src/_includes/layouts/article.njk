@@ -1,0 +1,104 @@
+---
+layout: layouts/base.njk
+---
+<article class="story">
+  <header class="article-head">
+    <p class="story-kicker">
+      <a class="chip" href="{{ ('/category/' ~ (category | categorySlug) ~ '/') | url }}">{{ category }}</a>
+      <time datetime="{{ page.date | isoDate }}">{{ page.date | displayDate }}</time>
+    </p>
+    <h1>{{ title }}</h1>
+    <p class="byline">By <a href="{{ '/about/' | url }}">{{ author or site.author }}</a></p>
+    {% if label == "analysis" %}
+    <p class="piece-label">Analysis</p>
+    {% elif label == "speculation" %}
+    <p class="piece-label">Speculation</p>
+    {% elif label == "opinion" or opinion %}
+    <p class="piece-label">Opinion</p>
+    {% endif %}
+    {% set dekText = description or summary %}
+    {% if dekText %}
+    <p class="dek">{{ dekText }}</p>
+    {% endif %}
+    <p class="last-updated">Last updated <time datetime="{{ (updatedAt or page.date) | isoDate }}">{{ (updatedAt or page.date) | displayDate }}</time></p>
+    <p class="not-advice">Not investment advice. <a href="{{ '/disclaimer/' | url }}">Read the disclaimer</a>.</p>
+  </header>
+  {% if disclaimer == "health" %}
+  <p class="article-disclaimer" role="note">This is not health or medical advice. It is a report.</p>
+  {% elif disclaimer == "legal" %}
+  <p class="article-disclaimer" role="note">This is not legal advice. It is a report.</p>
+  {% endif %}
+  {% if hero and hero.src %}
+  <figure class="story-figure story-hero{% if not (hero.src | imageFilesReady) %} is-slot{% endif %}">
+    {% set srcBase = hero.src %}
+    {% set imageAlt = hero.alt %}
+    {% set imageWidth = hero.width %}
+    {% set imageHeight = hero.height %}
+    {% set imageLoading = "eager" %}
+    {% set imagePriority = "high" %}
+    {% include "partials/picture.njk" %}
+    {% set heroCaption = hero.caption | figureCaption %}
+    {% if heroCaption %}
+    <figcaption><span class="figure-caption">{{ heroCaption }}</span></figcaption>
+    {% endif %}
+  </figure>
+  {% endif %}
+  {% include "partials/story-figure.njk" %}
+  <div class="prose">
+    {{ content | insertBodyImages(images) | safe }}
+  </div>
+  <p class="more-in">More in <a href="{{ ('/category/' ~ (category | categorySlug) ~ '/') | url }}">{{ category }}</a>.</p>
+  {% set related = collections.publishedPosts | relatedPosts({ url: page.url, category: category, tags: tags }) %}
+  {% if related and related.length %}
+  <section class="related" aria-labelledby="related-heading">
+    <h2 id="related-heading">Related</h2>
+    <ul>
+      {% for post in related %}
+      <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  {% if tags and tags.length %}
+  <section class="tag-block" aria-labelledby="tags-heading">
+    <h2 id="tags-heading">Tags</h2>
+    <ul class="tag-list">
+      {% for tag in tags %}
+      {% if tag != "post" %}
+      <li>
+        {% if collections.publicTagList and (tag in collections.publicTagList) %}
+        <a href="{{ ('/tags/' ~ (tag | slugify) ~ '/') | url }}">{{ tag }}</a>
+        {% else %}
+        <span>{{ tag }}</span>
+        {% endif %}
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  <section class="sources" aria-labelledby="sources-heading">
+    <h2 id="sources-heading">Sources</h2>
+    {% if sources and sources.length %}
+    <ol>
+      {% for source in sources %}
+      {% set href = source.url | safeHttpUrl %}
+      <li>
+        {% if href %}
+        <a href="{{ href }}">{{ source.title }}<span class="visually-hidden"> (external source)</span></a>
+        {% else %}
+        {{ source.title }}
+        {% endif %}
+        <span class="source-meta">
+          <span class="source-publisher">{{ source.publisher }}</span>
+          <span aria-hidden="true"> · </span>
+          <time datetime="{{ source.date | isoDate }}">{{ source.date | displayDate }}</time>
+        </span>
+      </li>
+      {% endfor %}
+    </ol>
+    {% else %}
+    <p>This draft has no sources yet. Add a non-empty sources list before publishing. The production build fails without one.</p>
+    {% endif %}
+  </section>
+</article>
