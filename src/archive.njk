@@ -1,0 +1,10 @@
+---
+layout: layouts/section.njk
+title: Archive
+kicker: Archive
+summary: Every published FiscalHour story, newest first.
+permalink: /archive/
+---
+{% set stories = collections.publishedPosts %}
+{% set emptyNote = "No story has been published yet." %}
+{% include "partials/story-list.njk" %}

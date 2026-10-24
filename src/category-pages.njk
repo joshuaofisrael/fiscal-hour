@@ -1,0 +1,13 @@
+---
+pagination:
+  data: site.categories
+  size: 1
+  alias: desk
+  addAllPagesToCollections: true
+permalink: "/category/{{ desk.slug }}/"
+layout: layouts/section.njk
+kicker: Section
+---
+{% set stories = collections.publishedPosts | whereCategory(desk.name) %}
+{% set emptyNote = "No story has been published in " ~ desk.name ~ " yet." %}
+{% include "partials/story-list.njk" %}

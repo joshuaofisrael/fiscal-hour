@@ -1,0 +1,21 @@
+{
+  "name": "fiscal-hour",
+  "private": true,
+  "description": "FiscalHour, a static financial news site.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "ELEVENTY_ENV=development eleventy --serve --port=8080",
+    "build": "eleventy",
+    "build:preview": "ELEVENTY_ENV=development eleventy --output=_site-preview",
+    "indexnow": "node scripts/ping-indexnow.js",
+    "logo": "node scripts/build-logo.js",
+    "test": "node --test --test-concurrency=1"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.7",
+    "gray-matter": "^4.0.3"
+  }
+}
