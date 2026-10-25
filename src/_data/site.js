@@ -22,6 +22,8 @@ const site = {
   contactFormEndpoint: "https://formsubmit.co/REPLACE_WITH_ALIAS",
   indexNowKey: "95ef7049f3b49637c55b979369df62e9",
   cloudflareAnalyticsToken: "c44e6c72bf1a4ddda7fa732f5219678c",
+  // Real profile URLs only. An empty list omits sameAs from JSON-LD.
+  sameAs: [],
   adsenseClient,
   adsensePublisher: adsensePublisherId(adsenseClient),
   adsenseCertificationAuthorityId: "f08c47fec0942fa0",
