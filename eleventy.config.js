@@ -23,6 +23,7 @@ export default function (eleventyConfig) {
     filter: (filePath) => !/[\\/]fixture-[^\\/]+\.(webp|avif)$/.test(filePath),
   });
   eleventyConfig.addPassthroughCopy({ CNAME: "CNAME" });
+  eleventyConfig.addPassthroughCopy({ "BingSiteAuth.xml": "BingSiteAuth.xml" });
   eleventyConfig.addWatchTarget("src/assets");
 
   eleventyConfig.addFilter("displayDate", formatDisplayDate);
