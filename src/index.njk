@@ -58,3 +58,17 @@ permalink: /
     </ul>
   </aside>
 </div>
+{% if faq and faq.length %}
+<section class="wrap faq" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Questions</h2>
+  <p class="faq-note">The short answers below follow <a href="{{ '/sources-ethics/' | url }}">Sources &amp; Ethics</a>, <a href="{{ '/corrections/' | url }}">Corrections</a>, and the <a href="{{ '/disclaimer/' | url }}">disclaimer</a>.</p>
+  <dl>
+    {% for item in faq %}
+    <div>
+      <dt>{{ item.question }}</dt>
+      <dd>{{ item.answer }}</dd>
+    </div>
+    {% endfor %}
+  </dl>
+</section>
+{% endif %}

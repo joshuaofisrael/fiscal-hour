@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
 import site from "../src/_data/site.js";
+import faq from "../src/_data/faq.js";
 
 const root = path.resolve(import.meta.dirname, "..");
 const bin = path.join(root, "node_modules", ".bin", "eleventy");
@@ -93,7 +94,23 @@ test("production build passes with zero posts and keeps the legal name off the c
   assert.match(home, /name="twitter:card" content="summary"/);
   assert.match(home, /NewsMediaOrganization/);
   assert.match(home, /BreadcrumbList/);
+  assert.match(home, /FAQPage/);
+  assert.doesNotMatch(home, /"sameAs"/);
   assert.doesNotMatch(home, /NewsArticle/);
+  assert.match(home, /id="faq-heading"/);
+  assert.ok(faq.length >= 5 && faq.length <= 6);
+  for (const item of faq) {
+    assert.ok(home.includes(item.question), item.question);
+    assert.ok(home.includes(item.answer), item.question);
+    assert.doesNotMatch(`${item.question} ${item.answer}`, /Joshua|Ventures/);
+  }
+  const homeJson = JSON.parse(home.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  const homeFaq = homeJson["@graph"].find((node) => node["@type"] === "FAQPage");
+  assert.deepEqual(
+    homeFaq.mainEntity.map((item) => item.acceptedAnswer.text),
+    faq.map((item) => item.answer),
+  );
+  assert.equal(Object.hasOwn(homeJson["@graph"].find((node) => node["@type"] === "NewsMediaOrganization"), "sameAs"), false);
   assert.doesNotMatch(home, /Joshua|Ventures|All rights reserved|©/);
   assert.doesNotMatch(home, /adsbygoogle|google-adsense-account/);
   assert.match(home, /pagead2\.googlesyndication\.com/);

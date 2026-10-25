@@ -274,9 +274,41 @@ a:hover {
 
 .desk-board h2,
 .home-grid h2,
+.faq h2,
 .page-head h1,
 .article-head h1 {
   margin-top: 0;
+}
+
+.faq {
+  padding: 0.4rem 0 2.8rem;
+}
+
+.faq-note {
+  max-width: 68ch;
+  color: var(--muted);
+}
+
+.faq dl {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0;
+}
+
+.faq dl > div {
+  border-top: 1px solid var(--line);
+  padding: 0.9rem 0 1rem;
+}
+
+.faq dt {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.faq dd {
+  margin: 0.4rem 0 0;
+  max-width: 68ch;
 }
 
 .desk-list {
