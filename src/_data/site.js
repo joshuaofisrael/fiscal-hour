@@ -21,7 +21,7 @@ const site = {
   contactEmail: "",
   contactFormEndpoint: "https://formsubmit.co/REPLACE_WITH_ALIAS",
   indexNowKey: "95ef7049f3b49637c55b979369df62e9",
-  cloudflareAnalyticsToken: "cbf0f8d3bf0e40838131a3a0c174d995",
+  cloudflareAnalyticsToken: "c44e6c72bf1a4ddda7fa732f5219678c",
   adsenseClient,
   adsensePublisher: adsensePublisherId(adsenseClient),
   adsenseCertificationAuthorityId: "f08c47fec0942fa0",
