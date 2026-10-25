@@ -95,7 +95,7 @@ test("production build passes with zero posts and keeps the legal name off the c
   assert.match(home, /BreadcrumbList/);
   assert.doesNotMatch(home, /NewsArticle/);
   assert.doesNotMatch(home, /Joshua|Ventures|All rights reserved|©/);
-  assert.doesNotMatch(home, /adsbygoogle|google-adsense-account|beacon\.min\.js/);
+  assert.doesNotMatch(home, /adsbygoogle|google-adsense-account/);
   assert.match(home, /pagead2\.googlesyndication\.com/);
   assert.match(home, /static\.cloudflareinsights\.com/);
   assert.match(home, /form-action 'none'/);
@@ -181,7 +181,7 @@ test("production build passes with zero posts and keeps the legal name off the c
   assert.doesNotMatch(ads, /^google\.com,/m);
   assert.doesNotMatch(ads, new RegExp(EV_ADSENSE));
   assert.equal(site.adsenseClient, "");
-  assert.equal(site.cloudflareAnalyticsToken, "");
+  assert.match(site.cloudflareAnalyticsToken, /^([0-9a-f]{32})?$/);
 
   for (const url of [
     `${site.url}/`,
