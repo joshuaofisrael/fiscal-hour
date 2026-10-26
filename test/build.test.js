@@ -3,8 +3,10 @@ import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { test } from "node:test";
+import matter from "gray-matter";
 import site from "../src/_data/site.js";
 import faq from "../src/_data/faq.js";
+import { isFreshNews } from "../lib/dates.js";
 
 const root = path.resolve(import.meta.dirname, "..");
 const bin = path.join(root, "node_modules", ".bin", "eleventy");
@@ -42,7 +44,24 @@ function decodeAttr(value) {
     .replace(/&gt;/g, ">");
 }
 
-test("production build passes with zero posts and keeps the legal name off the chrome", { timeout: 120000 }, () => {
+function listPublishedPosts() {
+  const dir = path.join(root, "src/content/posts");
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((name) => name.endsWith(".md") && !name.startsWith("_"))
+    .map((name) => {
+      const parsed = matter(fs.readFileSync(path.join(dir, name), "utf8"));
+      return { file: name.replace(/\.md$/, ""), data: parsed.data };
+    })
+    .filter((post) => post.data.draft !== true && post.data.sample !== true);
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+test("production build passes and keeps the legal name off the chrome", { timeout: 120000 }, () => {
   const failed = runEleventy(["--output=_site-invalid"], {
     ELEVENTY_ENV: "production",
     POSTS_DIR: "test/fixtures/invalid-posts",
@@ -78,7 +97,9 @@ test("production build passes with zero posts and keeps the legal name off the c
   assert.notEqual(site.indexNowKey, EV_INDEXNOW_KEY);
   assert.equal(fs.readFileSync(path.join(root, "CNAME"), "utf8").trim(), "fiscalhour.com");
 
-  assert.match(home, /No story has been published yet/);
+  const published = listPublishedPosts();
+  if (published.length === 0) assert.match(home, /No story has been published yet/);
+  else assert.doesNotMatch(home, /No story has been published yet/);
   assert.match(home, /FiscalHour/);
   assert.match(home, /Sourced financial news/);
   assert.match(home, /href="\/category\/markets\/"/);
@@ -184,16 +205,43 @@ test("production build passes with zero posts and keeps the legal name off the c
 
   for (const name of site.crawlers) assert.match(robots, new RegExp(`User-agent: ${name}\\nAllow: /`));
   assert.match(robots, /User-agent: \*\nAllow: \//);
-  assert.doesNotMatch(robots, /disallow|noai|noimageai|news-sitemap/i);
+  assert.doesNotMatch(robots, /disallow|noai|noimageai/i);
   assert.match(robots, new RegExp(`Sitemap: ${site.url}/sitemap\\.xml`));
-  assert.match(news, /<!-- No articles were published in the last two days. -->/);
   assert.match(news, /xmlns:news="http:\/\/www.google.com\/schemas\/sitemap-news\/0.9"/);
-  assert.doesNotMatch(news, /<url>/);
-  assert.doesNotMatch(llms, /news-sitemap|Joshua|Ventures/);
-  assert.match(llms, /No article has been published yet/);
   assert.match(feed, /<rss version="2.0">/);
   assert.match(atom, /<feed xmlns="http:\/\/www.w3.org\/2005\/Atom">/);
-  assert.doesNotMatch(feed + atom, /<item>|<entry>/);
+  assert.doesNotMatch(llms, /Joshua|Ventures/);
+  const fresh = published.filter((post) => isFreshNews(post.data.date));
+  if (published.length === 0) {
+    assert.doesNotMatch(robots, /news-sitemap/i);
+    assert.match(news, /<!-- No articles were published in the last two days. -->/);
+    assert.doesNotMatch(news, /<url>/);
+    assert.doesNotMatch(llms, /news-sitemap/);
+    assert.match(llms, /No article has been published yet/);
+    assert.doesNotMatch(feed + atom, /<item>|<entry>/);
+  } else {
+    assert.doesNotMatch(llms, /No article has been published yet/);
+    assert.match(feed, /<item>/);
+    assert.match(atom, /<entry>/);
+    for (const post of published) {
+      const loc = `/articles/${post.file}/`;
+      assert.match(home, new RegExp(escapeRegExp(post.data.title)));
+      assert.match(sitemap, new RegExp(escapeRegExp(loc)));
+      assert.match(llms, new RegExp(escapeRegExp(post.data.title)));
+    }
+    if (fresh.length) {
+      assert.match(robots, /news-sitemap\.xml/);
+      assert.match(llms, /news-sitemap\.xml/);
+      assert.match(news, /<url>/);
+      assert.doesNotMatch(news, /<!-- No articles were published in the last two days. -->/);
+      for (const post of fresh) assert.match(news, new RegExp(`/articles/${post.file}/`));
+    } else {
+      assert.doesNotMatch(robots, /news-sitemap/i);
+      assert.doesNotMatch(llms, /news-sitemap/);
+      assert.match(news, /<!-- No articles were published in the last two days. -->/);
+      assert.doesNotMatch(news, /<url>/);
+    }
+  }
   assert.match(ads, /ads\.txt placeholder/);
   assert.doesNotMatch(ads, /^google\.com,/m);
   assert.doesNotMatch(ads, new RegExp(EV_ADSENSE));
@@ -230,7 +278,8 @@ test("production build passes with zero posts and keeps the legal name off the c
     if (/gmail\.com/i.test(fs.readFileSync(file, "utf8"))) sourceHits.push(path.relative(root, file));
   }
   assert.deepEqual(sourceHits, []);
-  assert.doesNotMatch(sitemap, /\/articles\//);
+  if (published.length === 0) assert.doesNotMatch(sitemap, /\/articles\//);
+  else assert.match(sitemap, /\/articles\//);
 
   const layout = fs.readFileSync(path.join(root, "src/_includes/layouts/article.njk"), "utf8");
   assert.match(layout, /Not investment advice/);
@@ -284,7 +333,14 @@ This page checks the article template. It is not a news report.
     assert.match(article, /More in <a href="\/category\/markets\/">Markets<\/a>/);
     assert.match(article, /noindex, nofollow/);
     assert.doesNotMatch(article, /Joshua|Ventures/);
-    assert.doesNotMatch(article, /<h2 id="related-heading">/);
+    const marketsPublished = published.filter((post) => post.data.category === "Markets");
+    if (marketsPublished.length === 0) {
+      assert.doesNotMatch(article, /<h2 id="related-heading">/);
+    } else {
+      assert.match(article, /<h2 id="related-heading">/);
+      assert.match(article, new RegExp(`/articles/${marketsPublished[0].file}/`));
+      assert.doesNotMatch(article, /href="\/articles\/2026-10-24-layout-check\/"/);
+    }
     assert.equal(fs.existsSync(path.join(root, "_site/articles/2026-10-24-layout-check/index.html")), false);
   } finally {
     fs.rmSync(draftPath, { force: true });
