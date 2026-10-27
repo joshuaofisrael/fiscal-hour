@@ -8,9 +8,10 @@ Stories are informational. They are not investment advice, they do not recommend
 
 The publisher name in metadata and JSON-LD is **FiscalHour**. The legal name is printed only on the Terms, Privacy, Disclaimer, Copyright, Advertising disclosure, and Contact pages. It is not in the header, the home page, About, trust copy, or the footer. The footer has no copyright line.
 
-There is no third-party font host. Pages do not load a tracker or an ad script until the matching value is set in `src/_data/site.js`:
+There is no third-party font host. Optional scripts stay off until configured in `src/_data/site.js`. Google Analytics 4 also waits for the visitor to accept:
 
-- `cloudflareAnalyticsToken` — empty omits the Cloudflare Web Analytics beacon. The Content-Security-Policy still allows `static.cloudflareinsights.com`.
+- `cloudflareAnalyticsToken` — empty omits the Cloudflare Web Analytics beacon. The Content-Security-Policy still allows `static.cloudflareinsights.com`. The beacon stays the last script on the page.
+- `gaMeasurementId` — Google Analytics 4 measurement id. Consent Mode v2 defaults to denied (`ad_storage`, `ad_user_data`, `ad_personalization`, `analytics_storage`) before any tag configuration. Accept stores the choice and loads `gtag.js`. Decline stores the choice and loads nothing. Withdrawal is on the privacy policy.
 - `adsenseClient` — empty omits the AdSense loader and the account meta tag. Set it to a `ca-pub-` id to enable them. `/ads.txt` stays a comment placeholder until then. The Content-Security-Policy allows `pagead2.googlesyndication.com` either way. There are no ad units.
 
 ## Develop
@@ -91,13 +92,13 @@ The rules are also on the [Sources & Ethics](src/sources-ethics.njk) page. Corre
 
 > © 2026 Joshua Israel Ventures LLC. All rights reserved. FiscalHour is a trade name of Joshua Israel Ventures LLC, a Florida limited liability company.
 
-Do not add that line, or either name, to the header, the home page, About, a banner, or the footer. Do not add a copyright line to the footer. The contact form endpoint is `contactFormEndpoint` in `src/_data/site.js`. The default is `https://formsubmit.co/REPLACE_WITH_ALIAS`. Replace it with the FormSubmit alias. Do not commit the inbox address.
+Do not add that line, or either name, to the header, the home page, About, a banner (including the analytics consent banner), or the footer. Do not add a copyright line to the footer. The contact form endpoint is `contactFormEndpoint` in `src/_data/site.js`. The default is `https://formsubmit.co/REPLACE_WITH_ALIAS`. Replace it with the FormSubmit alias. Do not commit the inbox address.
 
 ## Discovery files
 
 The production build writes:
 
-- `/sitemap.xml` for pages and published articles
+- `/sitemap.xml` for pages and published articles. A tag page, category page, or topic hub with fewer than two published stories is left out, and that page sends `noindex,follow`. The count updates when stories are added.
 - `/news-sitemap.xml` in the Google News format, for published articles from the last two days. With none in the window, the file stays valid XML and contains a comment instead of URL entries. `robots.txt` and `llms.txt` list that file only when it has articles.
 - `/feed.xml` (RSS) and `/atom.xml` (Atom)
 - `/robots.txt`, which allows Googlebot, Bingbot, GPTBot, ClaudeBot, CCBot, Google-Extended, Bytespider, OAI-SearchBot, PerplexityBot, and Applebot-Extended

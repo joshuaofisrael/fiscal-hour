@@ -2,6 +2,7 @@ import { normalizeSiteUrl } from "../../lib/site-url.js";
 import { adsensePublisherId } from "../../lib/ads.js";
 
 const adsenseClient = "";
+const gaMeasurementId = "G-MYEYDB0G8G";
 
 const site = {
   name: "FiscalHour",
@@ -22,6 +23,8 @@ const site = {
   contactFormEndpoint: "https://formsubmit.co/REPLACE_WITH_ALIAS",
   indexNowKey: "95ef7049f3b49637c55b979369df62e9",
   cloudflareAnalyticsToken: "c44e6c72bf1a4ddda7fa732f5219678c",
+  gaMeasurementId,
+  gaCookieName: `_ga_${gaMeasurementId.slice(2)}`,
   // Real profile URLs only. An empty list omits sameAs from JSON-LD.
   sameAs: [],
   adsenseClient,

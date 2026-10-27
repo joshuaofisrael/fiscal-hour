@@ -1,10 +1,10 @@
 ---
 seoTitle: "Privacy Policy — FiscalHour"
-seoDescription: "The FiscalHour privacy policy explains what data the site collects, including cookieless analytics and contact messages, how it is used, and your choices."
+seoDescription: "The FiscalHour privacy policy explains contact messages, cookieless analytics, optional Google Analytics 4, and your consent choices."
 layout: layouts/page.njk
 title: Privacy
 kicker: Legal
-summary: Privacy policy for FiscalHour, including how messages and advertising are handled.
+summary: Privacy policy for FiscalHour, including messages, advertising, and analytics.
 permalink: /privacy/
 legal: true
 ---
@@ -16,9 +16,18 @@ legal: true
 <p>The site is a static site hosted on GitHub Pages. GitHub, as the host, may process technical logs such as IP address, browser type, and the page requested, under the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>.</p>
 <h2>Analytics</h2>
 <p>When a Cloudflare Web Analytics token is set in the site configuration, each page loads a cookieless Cloudflare Web Analytics beacon as the last script on the page. That beacon measures visits without a cookie and without an advertising tracker. Until a token is set, the beacon is omitted. Cloudflare describes the product in its <a href="https://www.cloudflare.com/web-analytics/">Cloudflare Web Analytics</a> documentation.</p>
+<h3>Google Analytics 4</h3>
+<p>The site can also use Google Analytics 4, measurement ID {{ site.gaMeasurementId }}, a service from Google. The Google tag is not loaded until you choose Accept. Before any Google tag configuration, each page sets Google Consent Mode so ad storage, ad user data, ad personalization, and analytics storage are denied.</p>
+<p>If you choose Accept, this browser remembers that choice and loads the Google tag. Google Analytics 4 then collects how you use the site: pages viewed, the referring site, an approximate location derived from your IP address (Google Analytics 4 does not store the full IP address), browser and device type, and engagement such as how long a page stays in view. It sets first-party cookies named _ga and {{ site.gaCookieName }} to tell browsers and sessions apart. Google describes how it handles that information in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+<p>If you choose Decline, this browser remembers that choice, analytics storage stays denied, and the Google tag is not loaded. The cookieless Cloudflare beacon still runs either way.</p>
+<p>To withdraw consent, use Withdraw analytics consent below. That stores a decline, sets analytics storage back to denied, and stops the Google tag from loading on later visits in this browser. Allow analytics turns it on again. Clearing site data for this site also forgets the choice and shows the banner the next time you visit.</p>
+<p class="consent-choices">
+  <button type="button" class="consent-choice" id="consent-allow">Allow analytics</button>
+  <button type="button" class="consent-choice" id="consent-withdraw">Withdraw analytics consent</button>
+</p>
 <h2>Advertising</h2>
 <p>Advertising is off until a Google AdSense publisher id is set in the site configuration. Until then, pages do not load the AdSense script, do not request ads, and <a href="{{ '/ads.txt' | url }}">ads.txt</a> is a placeholder comment. The <a href="{{ '/advertising/' | url }}">advertising disclosure</a> says the same thing.</p>
-<p>When a publisher id is set, pages may load Google AdSense. Google and its partners use cookies to serve ads. Google describes that use in <a href="https://policies.google.com/technologies/ads">How Google uses cookies in advertising</a>. Visitors in the European Union, the United Kingdom, and Switzerland see a consent choice through Google’s Privacy &amp; messaging tools. This site does not add a separate consent-banner script.</p>
+<p>When a publisher id is set, pages may load Google AdSense. Google and its partners use cookies to serve ads. Google describes that use in <a href="https://policies.google.com/technologies/ads">How Google uses cookies in advertising</a>. Visitors in the European Union, the United Kingdom, and Switzerland see an advertising consent choice through Google’s Privacy &amp; messaging tools when ads are on. That advertising choice is separate from the Google Analytics 4 banner described above.</p>
 <h2>Children</h2>
 <p>The site is not directed at children under 13, and we do not knowingly collect personal information from them.</p>
 <h2>Florida law</h2>

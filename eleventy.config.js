@@ -9,6 +9,7 @@ import { metaDescription } from "./lib/meta-description.js";
 import { formatValidationErrors, validatePostsDir } from "./lib/validate-posts.js";
 import { relatedPosts, relatedStories } from "./lib/related.js";
 import { adsenseEnabled, adsensePublisherId } from "./lib/ads.js";
+import { isSitemapEntry } from "./lib/listing-index.js";
 
 const pathPrefix = pathPrefixFromSiteUrl(site.url);
 const includeDrafts = process.env.ELEVENTY_ENV === "development";
@@ -73,6 +74,7 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addFilter("metaDescription", (summary) => metaDescription(summary, site.description));
   eleventyConfig.addFilter("relatedPosts", (posts, current) => relatedStories(posts, current, 5));
+  eleventyConfig.addFilter("sitemapEntry", (item) => isSitemapEntry(item));
   eleventyConfig.addFilter("newsroomPosts", (posts) =>
     (posts || [])
       .filter((post) => post.data.draft !== true && post.data.sample !== true)
@@ -126,6 +128,9 @@ export default function (eleventyConfig) {
     }
     if (adsenseEnabled(site.adsenseClient) !== Boolean(adsensePublisherId(site.adsenseClient))) {
       throw new Error("AdSense client id does not match its publisher id.");
+    }
+    if (site.gaMeasurementId && !/^G-[A-Z0-9]+$/.test(site.gaMeasurementId)) {
+      throw new Error(`gaMeasurementId must look like G-XXXXXXXX. Found: ${site.gaMeasurementId}`);
     }
     const dir = process.env.POSTS_DIR || "src/content/posts";
     const result = validatePostsDir(dir);
