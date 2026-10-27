@@ -7,6 +7,7 @@ import matter from "gray-matter";
 import site from "../src/_data/site.js";
 import faq from "../src/_data/faq.js";
 import { isFreshNews } from "../lib/dates.js";
+import { isThinListing, siteListingCounts } from "../lib/listing-index.js";
 
 const root = path.resolve(import.meta.dirname, "..");
 const bin = path.join(root, "node_modules", ".bin", "eleventy");
@@ -59,6 +60,33 @@ function listPublishedPosts() {
 
 function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function listingPages(subdir) {
+  const dir = path.join(root, "_site", subdir);
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((name) => fs.existsSync(path.join(dir, name, "index.html")))
+    .map((name) => ({
+      slug: name,
+      html: fs.readFileSync(path.join(dir, name, "index.html"), "utf8"),
+    }));
+}
+
+function assertListingRobots(html, thin, label) {
+  const robots = html.match(/<meta name="robots" content="([^"]*)">/);
+  assert.ok(robots, `${label} robots`);
+  const canonical = html.match(/rel="canonical" href="([^"]+)"/);
+  assert.ok(canonical, `${label} canonical`);
+  const sitemap = read("_site", "sitemap.xml");
+  if (thin) {
+    assert.equal(robots[1], "noindex,follow", label);
+    assert.equal(sitemap.includes(canonical[1]), false, canonical[1]);
+  } else {
+    assert.equal(robots[1], "index, follow", label);
+    assert.equal(sitemap.includes(canonical[1]), true, canonical[1]);
+  }
 }
 
 test("production build passes and keeps the legal name off the chrome", { timeout: 120000 }, () => {
@@ -136,6 +164,29 @@ test("production build passes and keeps the legal name off the chrome", { timeou
   assert.doesNotMatch(home, /adsbygoogle|google-adsense-account/);
   assert.match(home, /pagead2\.googlesyndication\.com/);
   assert.match(home, /static\.cloudflareinsights\.com/);
+  assert.equal(site.gaMeasurementId, "G-MYEYDB0G8G");
+  assert.match(home, /data-ga-measurement-id="G-MYEYDB0G8G"/);
+  const consentDefault = home.match(/gtag\('consent', 'default', \{[\s\S]*?\}\);/);
+  assert.ok(consentDefault, "missing consent default");
+  for (const key of ["ad_storage", "ad_user_data", "ad_personalization", "analytics_storage"]) {
+    assert.match(consentDefault[0], new RegExp(`'${key}': 'denied'`));
+  }
+  assert.doesNotMatch(home, /gtag\('config'/);
+  assert.doesNotMatch(home, /googletagmanager\.com\/gtag\/js/);
+  assert.match(home, /id="consent-accept"/);
+  assert.match(home, /id="consent-decline"/);
+  assert.match(home, />Accept</);
+  assert.match(home, />Decline</);
+  const bannerAt = home.indexOf('id="consent-banner"');
+  assert.ok(bannerAt > home.indexOf("</footer>"));
+  const banner = home.slice(bannerAt, home.indexOf("</div>", home.indexOf("consent-actions", bannerAt)));
+  assert.doesNotMatch(banner, /Joshua|Ventures|All rights reserved|©/);
+  const scriptTags = [...home.matchAll(/<script\b[^>]*>/g)].map((match) => match[0]);
+  assert.match(scriptTags.at(-1), /static\.cloudflareinsights\.com\/beacon\.min\.js/);
+  assert.match(
+    scriptTags.at(-1),
+    new RegExp(`data-cf-beacon='\\{"token": "${site.cloudflareAnalyticsToken}"\\}'`),
+  );
   assert.match(home, /form-action 'none'/);
   const footer = home.slice(home.indexOf("<footer"));
   assert.doesNotMatch(footer, /©|All rights reserved|Joshua|Ventures/);
@@ -166,6 +217,15 @@ test("production build passes and keeps the legal name off the chrome", { timeou
   assert.match(disclaimer, /do not depict real identifiable people or actual news events/);
   assert.match(privacy, /<h2>Advertising<\/h2>/);
   assert.match(privacy, /policies\.google\.com\/technologies\/ads/);
+  assert.match(privacy, /Google Analytics 4/);
+  assert.match(privacy, new RegExp(escapeRegExp(site.gaMeasurementId)));
+  assert.match(privacy, /_ga/);
+  assert.match(privacy, new RegExp(escapeRegExp(site.gaCookieName)));
+  assert.match(privacy, /id="consent-withdraw"/);
+  assert.match(privacy, /id="consent-allow"/);
+  assert.match(privacy, /https:\/\/policies\.google\.com\/privacy/);
+  assert.match(privacy, /analytics storage stays denied/);
+  assert.match(privacy, /Cloudflare Web Analytics beacon as the last script/);
   assert.match(advertising, /does not load|not loaded|until a publisher id is set/i);
 
   const legalPages = [
@@ -260,15 +320,27 @@ test("production build passes and keeps the legal name off the chrome", { timeou
     `${site.url}/corrections/`,
     `${site.url}/sources-ethics/`,
     `${site.url}/archive/`,
-    `${site.url}/category/markets/`,
-    `${site.url}/category/economy/`,
-    `${site.url}/category/companies/`,
-    `${site.url}/category/crypto/`,
-    `${site.url}/category/personal-finance/`,
     `${site.url}/ads.txt`,
   ]) {
     assert.ok(sitemap.includes(url), url);
   }
+
+  const counts = siteListingCounts();
+  for (const category of site.categories) {
+    const html = read("_site", `category/${category.slug}/index.html`);
+    assertListingRobots(html, isThinListing(counts.categories.get(category.name) || 0), category.name);
+  }
+  for (const page of listingPages("topics")) {
+    assertListingRobots(page.html, isThinListing(counts.hubs.get(page.slug) || 0), `topic ${page.slug}`);
+  }
+  for (const page of listingPages("tags")) {
+    const title = decodeAttr(page.html.match(/<h1>([^<]*)<\/h1>/)[1]);
+    assert.equal(counts.tags.get(title) > 0, true, title);
+    assertListingRobots(page.html, isThinListing(counts.tags.get(title) || 0), `tag ${title}`);
+  }
+  const archive = read("_site", "archive/index.html");
+  assert.match(archive, /name="robots" content="index, follow"/);
+  assert.ok(sitemap.includes(`${site.url}/archive/`));
   const sourceHits = [];
   for (const file of walk(root)) {
     if (file.includes(`${path.sep}node_modules${path.sep}`) || file.includes(`${path.sep}_site`) || file.includes(`${path.sep}.git${path.sep}`)) {

@@ -598,6 +598,76 @@ a:hover {
   color: var(--accent);
 }
 
+body:has(.consent-banner:not([hidden])) {
+  padding-bottom: 8rem;
+}
+
+.consent-banner {
+  position: fixed;
+  z-index: 6;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  max-width: 34rem;
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 0.9rem;
+  align-items: center;
+  padding: 0.7rem 0.85rem;
+  background: var(--header);
+  color: var(--header-text);
+  border: 1px solid var(--gold);
+}
+
+.consent-banner[hidden] {
+  display: none;
+}
+
+.consent-banner p {
+  margin: 0;
+  flex: 1 1 12rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.consent-banner a {
+  color: var(--gold);
+}
+
+.consent-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.consent-banner button,
+.consent-choice {
+  font: inherit;
+  font-size: 0.92rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--header-text);
+  cursor: pointer;
+}
+
+.consent-banner #consent-accept,
+.consent-choice {
+  background: var(--gold);
+  color: var(--header);
+  border-color: var(--gold);
+}
+
+.consent-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.consent-choice {
+  border-color: var(--header);
+}
+
 .site-footer {
   margin-top: 3rem;
   background: var(--header);
@@ -721,6 +791,10 @@ a:hover {
 }
 
 @media print {
+  .consent-banner {
+    display: none;
+  }
+
   .mast,
   .site-footer,
   .skip-link,
