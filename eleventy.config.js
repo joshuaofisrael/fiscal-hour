@@ -7,7 +7,7 @@ import { buildCrumbs, renderBreadcrumbNav, renderJsonLd } from "./lib/structured
 import { figureCaption, imageFilesReady, insertBodyImages } from "./lib/article-images.js";
 import { metaDescription } from "./lib/meta-description.js";
 import { formatValidationErrors, validatePostsDir } from "./lib/validate-posts.js";
-import { relatedPosts } from "./lib/related.js";
+import { relatedPosts, relatedStories } from "./lib/related.js";
 import { adsenseEnabled, adsensePublisherId } from "./lib/ads.js";
 
 const pathPrefix = pathPrefixFromSiteUrl(site.url);
@@ -64,10 +64,15 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("pageTitle", function (title) {
     const pageUrl = this.page?.url || "/";
     if (pageUrl === pathPrefix) return `${site.name} — ${site.tagline}`;
-    return `${title || site.name} — ${site.name}`;
+    const full = `${title || site.name} — ${site.name}`;
+    if (full.length <= 60) return full;
+    const bare = String(title || site.name);
+    if (bare.length <= 60) return bare;
+    const cut = bare.slice(0, 59);
+    return `${cut.slice(0, cut.lastIndexOf(" ")).replace(/[\s,:;–—-]+$/, "")}…`;
   });
   eleventyConfig.addFilter("metaDescription", (summary) => metaDescription(summary, site.description));
-  eleventyConfig.addFilter("relatedPosts", (posts, current) => relatedPosts(posts, current));
+  eleventyConfig.addFilter("relatedPosts", (posts, current) => relatedStories(posts, current, 5));
   eleventyConfig.addFilter("newsroomPosts", (posts) =>
     (posts || [])
       .filter((post) => post.data.draft !== true && post.data.sample !== true)

@@ -1,4 +1,6 @@
 ---
+seoTitle: "Michigan Survey: 85% Say It's a Bad Time to Buy a Home"
+seoDescription: "In the University of Michigan's October survey, 85% said it was a bad time to buy a home, and 62% of those respondents blamed high interest rates for it."
 title: "Michigan survey: 85% called it a bad time to buy a house"
 description: "In the October Surveys of Consumers, 85% said it was a bad time to buy a home, and 62% of them blamed high interest rates, the university reported."
 date: 2026-10-26

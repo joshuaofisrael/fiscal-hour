@@ -28,6 +28,9 @@
           <a href="{{ ('/category/' ~ item.slug ~ '/') | url }}"{% if (desk and desk.slug == item.slug) or category == item.name %} aria-current="page"{% endif %}>{{ item.name }}</a>
         </li>
         {% endfor %}
+        {% for hub in topics %}
+        <li><a href="{{ ('/topics/' ~ hub.slug ~ '/') | url }}"{% if topic and topic.slug == hub.slug %} aria-current="page"{% endif %}>{{ hub.name }}</a></li>
+        {% endfor %}
       </ul>
     </div>
   </nav>

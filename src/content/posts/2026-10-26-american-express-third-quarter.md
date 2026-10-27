@@ -1,4 +1,6 @@
 ---
+seoTitle: "American Express Q3 Profit $3.7B, 5% Job Cuts Reported"
+seoDescription: "American Express reported $3.7 billion in Q3 net income, including a travel-stake gain and a $336 million restructuring charge, as 5% staff cuts were reported."
 title: "American Express reported a $3.7 billion third-quarter profit"
 description: "American Express said third-quarter net income was $3.7 billion, including a travel-stake gain and a $336 million restructuring charge. CNBC reported a plan to cut about 5% of staff."
 date: 2026-10-26

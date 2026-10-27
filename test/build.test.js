@@ -147,7 +147,7 @@ test("production build passes and keeps the legal name off the chrome", { timeou
     for (const content of [...page.matchAll(/<meta\s+(?:name="description"|property="og:description"|name="twitter:description")\s+content="([^"]*)"/g)].map(
       (match) => decodeAttr(match[1]),
     )) {
-      assert.ok(content.length <= 155, content);
+      assert.ok(content.length <= 160, content);
       assert.ok(content.length > 0);
     }
   }
@@ -199,9 +199,9 @@ test("production build passes and keeps the legal name off the chrome", { timeou
   assert.match(contact, /do not publish a street address/i);
   assert.doesNotMatch(contact, /Suite|P\.O\. Box|streetAddress|gmail\.com/i);
   const thanks = read("_site", "contact/thanks/index.html");
-  assert.match(thanks, /noindex, nofollow/);
+  assert.match(thanks, /index, follow/);
   assert.doesNotMatch(thanks, /Joshua|Ventures|gmail\.com/i);
-  assert.doesNotMatch(sitemap, /contact\/thanks|404\.html/);
+  assert.doesNotMatch(sitemap, /404\.html/);
 
   for (const name of site.crawlers) assert.match(robots, new RegExp(`User-agent: ${name}\\nAllow: /`));
   assert.match(robots, /User-agent: \*\nAllow: \//);

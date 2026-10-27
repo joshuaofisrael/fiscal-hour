@@ -48,10 +48,10 @@ layout: layouts/base.njk
     {{ content | insertBodyImages(images) | safe }}
   </div>
   <p class="more-in">More in <a href="{{ ('/category/' ~ (category | categorySlug) ~ '/') | url }}">{{ category }}</a>.</p>
-  {% set related = collections.publishedPosts | relatedPosts({ url: page.url, category: category, tags: tags }) %}
+  {% set related = collections.publishedPosts | relatedPosts({ url: page.url, category: category, tags: tags, topics: topics }) %}
   {% if related and related.length %}
   <section class="related" aria-labelledby="related-heading">
-    <h2 id="related-heading">Related</h2>
+    <h2 id="related-heading">Related stories</h2>
     <ul>
       {% for post in related %}
       <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>

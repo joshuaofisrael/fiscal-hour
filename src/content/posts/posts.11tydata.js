@@ -1,4 +1,6 @@
 import site from "../../_data/site.js";
+import topics from "../../_data/topics.js";
+import { topicsFor } from "../../../lib/topics.js";
 import { isDraft } from "../../../lib/validate-posts.js";
 
 const includeDrafts = process.env.ELEVENTY_ENV === "development";
@@ -7,6 +9,9 @@ export default {
   layout: "layouts/article.njk",
   kind: "article",
   eleventyComputed: {
+    topics(data) {
+      return topicsFor(data, topics);
+    },
     author() {
       return site.author;
     },

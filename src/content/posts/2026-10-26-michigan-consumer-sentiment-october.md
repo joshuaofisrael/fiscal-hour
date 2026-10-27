@@ -1,4 +1,6 @@
 ---
+seoTitle: "Michigan Consumer Sentiment Holds Near 48 in October"
+seoDescription: "The University of Michigan's final October sentiment index was 48.0, a tenth of a point below September, while year-ahead inflation expectations rose to 4.7%."
 title: "Michigan survey shows October consumer sentiment held near 48"
 description: "The University of Michigan’s final October sentiment index was 48.0, a tenth of a point under September. Year-ahead inflation expectations rose to 4.7%."
 date: 2026-10-26

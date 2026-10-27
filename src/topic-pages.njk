@@ -1,0 +1,15 @@
+---
+pagination:
+  data: topics
+  size: 1
+  alias: topic
+  addAllPagesToCollections: true
+permalink: "/topics/{{ topic.slug }}/"
+layout: layouts/section.njk
+kicker: Topic
+title: Topic hub
+---
+{% set stories = [] %}
+{% for post in collections.publishedPosts %}{% if topic.slug in (post.data.topics or []) %}{% set stories = (stories.push(post), stories) %}{% endif %}{% endfor %}
+{% set emptyNote = "No " ~ topic.name ~ " story has been published yet." %}
+{% include "partials/story-list.njk" %}
