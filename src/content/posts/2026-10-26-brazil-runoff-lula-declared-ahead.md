@@ -1,11 +1,11 @@
 ---
 status: HOLD_REVIEW
-seoTitle: "Brazil Runoff: Lula Leads Final Count at 51.79%"
-seoDescription: "With Brazil's runoff count complete, Lula had 51.79% and Flávio Bolsonaro 48.21%, the BBC reported from the electoral court. Bolsonaro had not yet conceded."
-title: "Brazil’s electoral count puts Lula ahead in the presidential runoff"
-description: "With the count complete, Lula had 51.79% and Flávio Bolsonaro 48.21%, the BBC reported from Brazil’s electoral court. Bolsonaro has not conceded."
+seoTitle: "Brazil Runoff: TSE Tally Shows Lula at 51.79%"
+seoDescription: "Brazil's electoral court results page shows Lula with 51.79% of valid votes and Flávio Bolsonaro with 48.21%, with all sections tallied. Bolsonaro had not conceded."
+title: "Brazil’s electoral court tally shows Lula ahead in the presidential runoff"
+description: "The TSE results page shows Lula with 51.79% of valid votes and Flávio Bolsonaro with 48.21%, with all sections tallied. Bolsonaro has not conceded, the BBC reported."
 date: 2026-10-26
-updatedAt: 2026-10-26
+updatedAt: 2026-10-27
 category: Economy
 tags:
   - brazil
@@ -28,15 +28,18 @@ images:
     width: 1280
     height: 720
 sources:
+  - title: "Resultados – Eleições 2026, 2º turno, Presidente"
+    url: "https://resultados.tse.jus.br/oficial/app/index.html"
+    publisher: "Tribunal Superior Eleitoral (TSE)"
+    date: 2026-10-25
   - title: "Lula wins in Brazil but faces hostile Congress and divided country"
     url: "https://www.bbc.com/news/articles/cmvg7p001qj9o"
     publisher: "BBC News"
     date: 2026-10-26
 ---
+Brazil’s Superior Electoral Court (TSE) [results page](https://resultados.tse.jus.br/oficial/app/index.html) for the presidential runoff shows all 499,248 voting sections tallied. It lists Luiz Inácio Lula da Silva with 51.79% of valid votes (64,256,232) and Flávio Bolsonaro with 48.21% (59,826,041), as of its last update at 23:26 local time on Oct. 25. The page reports a tally; it does not by itself mark the formal certification step. [The BBC reported](https://www.bbc.com/news/articles/cmvg7p001qj9o) on Monday that Lula had been re-elected and that Bolsonaro had not conceded.
 
-Luiz Inácio Lula da Silva has been re-elected president of Brazil, and Flávio Bolsonaro has not conceded, [the BBC reported](https://www.bbc.com/news/articles/cmvg7p001qj9o) on Monday. With all votes counted, Lula had 51.79% and Bolsonaro 48.21%, a result the BBC attributed to Brazil’s Superior Electoral Court.
-
-Bolsonaro has refused to recognize the result, the [BBC said](https://www.bbc.com/news/articles/cmvg7p001qj9o). He cited a two-hour extension of polling as “inexplicable,” the BBC reported, and it said both his campaign and Lula’s had asked for stations to stay open longer. The BBC said he told supporters in Brasília that he would seek to have the election annulled. That is his stated position, as reported by the BBC, not a finding about the vote.
+Bolsonaro has refused to recognize the result, the [BBC said](https://www.bbc.com/news/articles/cmvg7p001qj9o), and it reported that he told supporters in Brasília he would seek to have the election annulled. That is his stated position, as reported by the BBC, not a finding about the vote. FiscalHour has not seen any TSE ruling on such a challenge.
 
 The BBC said this is Lula’s fourth presidential win. He served from January 2003 to December 2010 and again from January 2023. The new term is set to begin on Jan. 5, 2027, [the BBC reported](https://www.bbc.com/news/articles/cmvg7p001qj9o). It said Bolsonaro finished ahead of Lula in the first round on Oct. 4.
 
