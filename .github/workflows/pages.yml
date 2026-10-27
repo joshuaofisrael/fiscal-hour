@@ -28,8 +28,12 @@ jobs:
         run: npm ci
       - name: Test
         run: npm test
+      - name: Legal hold gate
+        run: node scripts/legal-gate.js
       - name: Build
         run: npm run build
+      - name: Legal hold gate on site output
+        run: node scripts/legal-gate.js --check-output _site
       - name: Setup Pages
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/configure-pages@v5

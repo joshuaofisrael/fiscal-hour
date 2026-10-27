@@ -3,4 +3,6 @@ _site/
 _site-preview/
 _site-invalid/
 _site-dev/
+_site-legal-gate/
+content-review/held.jsonl
 .DS_Store

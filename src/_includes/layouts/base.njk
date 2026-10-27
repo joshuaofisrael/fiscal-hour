@@ -10,7 +10,9 @@
       {{ content | safe }}
     {% else %}
     <div class="wrap">
-      {% if draft %}
+      {% if legalHold %}
+      <p class="draft-banner" role="note">Held for review. This page is left out of the production site.</p>
+      {% elif draft %}
       <p class="draft-banner" role="note">Unpublished draft. This page is left out of the production site. It is not a published news report.</p>
       {% endif %}
       {% breadcrumbNav %}

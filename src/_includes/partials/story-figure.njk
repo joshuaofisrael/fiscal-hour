@@ -1,4 +1,4 @@
-{% if image %}
+{% if image and (not imageOptional or (image | hasProvenance)) %}
 <figure class="story-figure">
   {% set srcBase = image %}
   {% set imageLoading = "lazy" %}

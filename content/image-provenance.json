@@ -1,0 +1,293 @@
+{
+  "note": "Each key under images is a basename the legal gate accepts. These pictures are original AI-generated illustrations made for FiscalHour, as stated on /disclaimer/. A basename that is not listed has no record, and a story that requires it is held. An image marked optional: true may be dropped instead.",
+  "images": {
+    "amex-office": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "amex-desk": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "amex-servers": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "brazil-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "brazil-beans": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "brazil-port": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "fomc-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "fomc-table": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "fomc-clock": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "token-vault": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "token-discs": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "token-cars": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "sentiment-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "sentiment-aisle": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "sentiment-pump": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "housing-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "housing-keys": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "housing-drive": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "retail-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "retail-racks": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "retail-belt": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "friday-close-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "friday-close-screens": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "friday-close-tanks": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "anthropic-filing-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "anthropic-filing-racks": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "anthropic-filing-blank": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "b3-halt-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "b3-halt-screens": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "b3-halt-avenue": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "oil-settle-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "oil-settle-pipes": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "oil-settle-harbor": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "cadence-results-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "cadence-results-wafer": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "cadence-results-parts": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "fomc-open-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "fomc-open-table": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "fomc-open-clock": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "nucor-quarter-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "nucor-quarter-coil": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "nucor-quarter-yard": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "monday-tape-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "monday-tape-boards": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "monday-tape-aisle": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "verizon-quarter-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "verizon-quarter-fiber": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "verizon-quarter-cabinet": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    }
+  }
+}

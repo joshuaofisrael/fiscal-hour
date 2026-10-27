@@ -8,6 +8,7 @@ import site from "../src/_data/site.js";
 import faq from "../src/_data/faq.js";
 import { isFreshNews } from "../lib/dates.js";
 import { isThinListing, siteListingCounts } from "../lib/listing-index.js";
+import { isHeldPost } from "../lib/legal-gate.js";
 
 const root = path.resolve(import.meta.dirname, "..");
 const bin = path.join(root, "node_modules", ".bin", "eleventy");
@@ -55,7 +56,10 @@ function listPublishedPosts() {
       const parsed = matter(fs.readFileSync(path.join(dir, name), "utf8"));
       return { file: name.replace(/\.md$/, ""), data: parsed.data };
     })
-    .filter((post) => post.data.draft !== true && post.data.sample !== true);
+    .filter((post) => {
+      if (post.data.draft === true || post.data.sample === true) return false;
+      return !isHeldPost(path.join(dir, `${post.file}.md`));
+    });
 }
 
 function escapeRegExp(value) {

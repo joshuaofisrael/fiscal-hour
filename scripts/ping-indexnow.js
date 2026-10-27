@@ -7,6 +7,7 @@ import {
   isPlaceholderSiteUrl,
   urlsFromSitemap,
 } from "../lib/indexnow.js";
+import { heldUrlsIn } from "../lib/legal-gate.js";
 
 const dryRun = process.argv.includes("--dry-run");
 const sitemapPath = path.resolve(process.argv.find((arg) => arg.startsWith("--sitemap="))?.slice("--sitemap=".length) || "_site/sitemap.xml");
@@ -48,6 +49,12 @@ const foreign = urls.filter((url) => {
 });
 if (foreign.length) {
   console.error(`Sitemap URLs must use ${host}:\n${foreign.join("\n")}`);
+  process.exit(1);
+}
+
+const blocked = heldUrlsIn(urls);
+if (blocked.length) {
+  console.error(`LEGAL GATE: refusing IndexNow. Held stories are in the URL list:\n${blocked.join("\n")}`);
   process.exit(1);
 }
 

@@ -4,7 +4,7 @@
   <li class="story-card">
     <article>
       <p class="story-kicker">
-        {% if post.data.draft %}<span class="badge">Unpublished draft</span>{% endif %}
+        {% if post.data.legalHold %}<span class="badge">Held for review</span>{% elif post.data.draft %}<span class="badge">Unpublished draft</span>{% endif %}
         <a class="chip" href="{{ ('/category/' ~ (post.data.category | categorySlug) ~ '/') | url }}">{{ post.data.category }}</a>
         <time datetime="{{ post.date | isoDate }}">{{ post.date | displayDate }}</time>
       </p>

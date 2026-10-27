@@ -1,0 +1,20 @@
+{
+  "note": "Licence records for legal-gate fixtures only. These files are not site images and are not published.",
+  "images": {
+    "zz-test-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "test fixture"
+    },
+    "zz-test-body-a": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "test fixture"
+    },
+    "zz-test-body-b": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "test fixture"
+    }
+  }
+}
