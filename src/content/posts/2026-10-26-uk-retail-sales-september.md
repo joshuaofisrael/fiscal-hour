@@ -1,4 +1,6 @@
 ---
+seoTitle: "UK Retail Sales Fell 0.4% in September, ONS Says"
+seoDescription: "Great Britain's retail sales volumes fell 0.4% in September after rising in August, the ONS said. Across the third quarter, volumes were still up 0.7%."
 title: "UK retail sales volumes fell 0.4% in September, ONS says"
 description: "Great Britain’s retail sales volumes dropped 0.4% in September after rising in August. The third quarter as a whole was still up 0.7%, the ONS said."
 date: 2026-10-26

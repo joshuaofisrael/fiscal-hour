@@ -1,4 +1,6 @@
 ---
+seoTitle: "U.S. Stocks Fall as Brent Oil Hits Highest Since April"
+seoDescription: "The Dow, S&P 500 and Nasdaq all closed lower on Oct. 23, CNBC reported, while Brent crude settled at its highest level since April as oil prices climbed."
 title: "U.S. stocks fell Friday as Brent settled at its highest since April"
 description: "The Dow, S&P 500 and Nasdaq all closed lower on Oct. 23, CNBC reported, while Brent crude finished at its highest settlement since April."
 date: 2026-10-26

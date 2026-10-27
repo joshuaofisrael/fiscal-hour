@@ -1,4 +1,6 @@
 ---
+seoTitle: "House of Doge to Acquire a Tokenization Platform"
+seoDescription: "House of Doge said on Oct. 23 it agreed to buy McQueen Labs' tokenization platform and credit assets. It said deal terms and a vault launch date are not public."
 title: "House of Doge says it agreed to acquire a tokenization platform"
 description: "House of Doge said on Oct. 23 that it agreed to acquire McQueen Labs’ platform and credit assets. The company said the terms and a vault launch date are not public."
 date: 2026-10-26

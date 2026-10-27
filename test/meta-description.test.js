@@ -10,7 +10,7 @@ test("a short front-matter description is kept whole", () => {
 });
 
 test("a description is cut on a word boundary and only then gets an ellipsis", () => {
-  const exact = "battery ".repeat(30).trim().slice(0, META_DESCRIPTION_LIMIT);
+  const exact = "b".repeat(META_DESCRIPTION_LIMIT);
   assert.equal(exact.length, META_DESCRIPTION_LIMIT);
   assert.equal(metaDescription(exact), exact);
 

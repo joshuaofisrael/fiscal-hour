@@ -23,7 +23,16 @@ if (!fs.existsSync(sitemapPath)) {
   process.exit(1);
 }
 
-const urls = urlsFromSitemap(fs.readFileSync(sitemapPath, "utf8"));
+const onlyArg = process.argv.find((arg) => arg.startsWith("--only="))?.slice("--only=".length);
+let urls = urlsFromSitemap(fs.readFileSync(sitemapPath, "utf8"));
+if (onlyArg) {
+  const wanted = new Set(fs.readFileSync(onlyArg, "utf8").split("\n").map((u) => u.trim()).filter(Boolean));
+  urls = urls.filter((u) => wanted.has(u));
+  if (!urls.length) {
+    console.log("IndexNow skipped: no changed URLs.");
+    process.exit(0);
+  }
+}
 if (!urls.length) {
   console.error("Sitemap has no URLs to submit.");
   process.exit(1);

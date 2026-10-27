@@ -1,7 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ title | pageTitle }}</title>
-{% set metaSource = description or summary %}
+{% set fullTitle = seoTitle or (title | pageTitle) %}
+<title>{{ fullTitle }}</title>
+{% set metaSource = seoDescription or description or summary %}
 <meta name="description" content="{{ metaSource | metaDescription }}">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#0E1A2B">
@@ -25,7 +26,7 @@
 <link rel="alternate" type="application/atom+xml" title="{{ site.name }} Atom" href="{{ '/atom.xml' | url }}">
 <meta property="og:site_name" content="{{ site.name }}">
 <meta property="og:locale" content="{{ site.locale }}">
-<meta property="og:title" content="{{ title | pageTitle }}">
+<meta property="og:title" content="{{ fullTitle }}">
 <meta property="og:description" content="{{ metaSource | metaDescription }}">
 <meta property="og:url" content="{{ page.url | absoluteUrl }}">
 {% if kind == "article" and not draft %}
@@ -41,7 +42,7 @@
 <meta property="og:image:width" content="192">
 <meta property="og:image:height" content="192">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="{{ title | pageTitle }}">
+<meta name="twitter:title" content="{{ fullTitle }}">
 <meta name="twitter:description" content="{{ metaSource | metaDescription }}">
 <meta name="twitter:image" content="{{ '/assets/logo.png' | absoluteUrl }}">
 <meta name="twitter:image:alt" content="Copper FH monogram on a navy square, the FiscalHour mark.">

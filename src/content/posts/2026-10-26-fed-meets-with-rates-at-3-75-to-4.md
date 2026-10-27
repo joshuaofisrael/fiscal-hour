@@ -1,4 +1,6 @@
 ---
+seoTitle: "Fed Meets Oct. 27–28 With Rates at 3.75%–4%"
+seoDescription: "The Federal Reserve holds a two-day meeting on Oct. 27–28, with a statement at 2 p.m. on the 28th. In September it set the funds rate target at 3.75% to 4%."
 title: "Federal Reserve meets Oct. 27–28 with the funds rate at 3.75% to 4%"
 description: "The Fed calendar lists a two-day meeting on Oct. 27–28 and a 2 p.m. statement on the 28th. In September the committee raised the target range to 3.75%–4%."
 date: 2026-10-26

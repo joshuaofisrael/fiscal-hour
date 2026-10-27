@@ -1,4 +1,6 @@
 ---
+seoTitle: "Brazil Runoff: Lula Leads Final Count at 51.79%"
+seoDescription: "With Brazil's runoff count complete, Lula had 51.79% and Flávio Bolsonaro 48.21%, the BBC reported from the electoral court. Bolsonaro had not yet conceded."
 title: "Brazil’s electoral count puts Lula ahead in the presidential runoff"
 description: "With the count complete, Lula had 51.79% and Flávio Bolsonaro 48.21%, the BBC reported from Brazil’s electoral court. Bolsonaro has not conceded."
 date: 2026-10-26
