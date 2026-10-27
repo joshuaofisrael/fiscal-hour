@@ -37,6 +37,7 @@ Create a new file. Do not invent a fact, a quote, a price, or an event to fill a
 5. Run `npm run dev` and open `/articles/YYYY-MM-DD-short-slug/`.
 6. When the source list is complete, remove the `draft` line (or set `draft: false`).
 7. Run `npm test`. The production build fails if a published article has no sources, a source is missing `title`, `url`, `publisher`, or `date`, `updatedAt` is missing, `description` is missing, or the story is missing a hero, two body images, or alt text.
+8. Run `node scripts/legal-gate.js`. Every new story has to pass that gate. Stdout is JSONL of anything held. A held story stays in the repo with `status: HOLD_REVIEW` and is not published. Do not delete it, do not soften the wording to dodge the hold, and do not write an approval or a clearance yourself.
 
 ```yaml
 ---
@@ -86,6 +87,40 @@ An AI-generated picture uses `hero` or an `images` entry with `src`, `alt`, `wid
 
 The rules are also on the [Sources & Ethics](src/sources-ethics.njk) page. Corrections go through the [Corrections](src/corrections.njk) page.
 
+## Legal hold gate
+
+`node scripts/legal-gate.js` is the check a future batch run should use. It prints one JSON object per held story to stdout and writes the same lines to `content-review/held.jsonl`. The object fields are `ts`, `site` (`fiscalhour.com`), `bot` (`Financial News Bot`), `title`, `flagged`, `rule`, `sources`, `suggestion`, `draft_path`, `sha256`, `status` (`HOLD_REVIEW`), plus `tier` and `slug`.
+
+The same check runs inside `npm run build`. [`.github/workflows/pages.yml`](.github/workflows/pages.yml) runs it on pull requests and, on `main`, again on `_site` before the Pages upload. A story flagged under any of the eight rules is left out of the article page, the homepage, tag and category and topic pages, both feeds, and both sitemaps. If that story’s page is still in the built site, the workflow fails. IndexNow and `scripts/changed-urls.js` refuse a URL for a held story, so a retry cannot announce it.
+
+Set `status: HOLD_REVIEW` on a story the gate flags. The file stays in `src/content/posts/`. Removing that status, or changing any character, changes the sha256 and the story is checked again. `content-review/approvals.jsonl` can publish a held file only when a line has that exact `sha256` and `"approved_by": "Joshua"`. `content-review/moderate-clearances.jsonl` can publish a file only when every code flag is moderate, the `sha256` matches, and `chatgpt_verdict` starts with `SAFE`. A clearance never publishes a high-tier hold. Do not add either line yourself.
+
+High tier, Joshua only: rules 1, 2, and 8, and every code hit on rule 6 (logistics and final or certified result wording). Moderate tier: rules 3, 4, 5, and 7. A `HOLD_REVIEW` story with no code hit is also Joshua only.
+
+Code-enforced:
+
+1. Allegation wording: fraud, accused, charged with, lawsuit alleges, misconduct, corruption, embezzlement, bribery, money laundering, insider trading, indictment, convicted of, arrested for, perjury, racketeering, ponzi, allege and allegedly. `anti-fraud` and `anti-corruption` are not matches.
+2. An email address, a phone number, an SSN-shaped number, or a numbered street address such as `123 Main Street`.
+3. `content/image-provenance.json` has to exist or the build refuses to run. A required image with no licence record holds the story. An image with `optional: true` and no record is dropped instead.
+4. The story has at least one `http` or `https` URL in `sources`.
+5. Personalised advice or a promised return: guaranteed returns, you should buy or sell, investors should buy, a price target.
+6. Election logistics (polling place, hours, registration, eligibility, where or how to vote) and final, certified, or official result wording in an election context. A source URL on an election-authority host, such as `fec.gov` or `tse.jus.br`, suppresses this code hit. That is not a story allowlist.
+7. Overclaim words in `title` or `seoTitle` only: bombshell, shocking, explosive, scandal, must-buy, exposed, secret, urgent, breaking, exclusive, guaranteed, and the same kind of wording. A source headline is not this site’s headline. `Record-Breaking` in a publisher’s title is not a hit. The same word in our `title` is.
+8. Embargo, legal notice, cease and desist, rights complaint, correction request, not for publication, reporting restriction, takedown, do not publish.
+
+Judgement only, not decided by these patterns:
+
+1. Defamation nuance: implication, innuendo, and whether a named person is identifiable when the wording above is absent.
+2. Health, sexuality, children, victims, private messages, or leaked financial records that are not an email, phone number, SSN, or street address.
+3. Whether a recorded licence is actually valid for the use, and whether a picture shows a real person or a real event.
+4. Sources that disagree, a confused identity, a quote that cannot be checked, or a source page that will not open.
+5. Advice or a dangerous instruction that does not use the phrases above. Ordinary sourced reporting on markets, medicine, tax, or law is not a hold by itself.
+6. A projection, a partial count, or a certified result when the logistics and final-result phrases are absent, and whether an official page is current.
+7. A headline that is stronger than the evidence without using the word list, an implied endorsement, or a synthetic image that could be mistaken for evidence.
+8. A legal complaint, embargo, or correction demand that does not use the marker phrases.
+
+Fixtures under `test/legal-gate/` are not an Eleventy input. They are never built or deployed.
+
 ## Name placement
 
 `Joshua Israel Ventures LLC` and `Joshua Israel` appear only on the legal pages: Terms, Disclaimer, Privacy, Copyright and DMCA, Advertising disclosure, and Contact. Each of those pages ends with:
@@ -119,7 +154,7 @@ npm run indexnow
 
 ## Pages deploy
 
-[`.github/workflows/pages.yml`](.github/workflows/pages.yml) runs the tests and production build on pull requests and on pushes to `main`. Pushes to `main` upload `_site`, including `CNAME`, and deploy it to GitHub Pages.
+[`.github/workflows/pages.yml`](.github/workflows/pages.yml) runs the tests, the legal hold gate, and the production build on pull requests and on pushes to `main`. Pushes to `main` run the gate again on `_site` before they upload it, including `CNAME`, and deploy it to GitHub Pages. The upload does not run when the gate fails.
 
 ## Layout
 
@@ -128,7 +163,9 @@ src/_data/site.js          name, url, publisher, contact form, IndexNow, ads, an
 src/content/posts/         one Markdown file per story
 src/_includes/             layouts and partials
 lib/validate-posts.js      fails the build when a published story is incomplete
-scripts/ping-indexnow.js   IndexNow submitter
+lib/legal-gate.js          pre-publish hold checks used by the build
+scripts/legal-gate.js      prints held stories as JSONL; fails if a hold would ship
+scripts/ping-indexnow.js   IndexNow submitter, refused when a held URL is in the sitemap
 scripts/build-logo.js      regenerates the FH monogram at src/assets/logo.png
 ```
 

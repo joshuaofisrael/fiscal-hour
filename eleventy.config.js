@@ -7,6 +7,7 @@ import { buildCrumbs, renderBreadcrumbNav, renderJsonLd } from "./lib/structured
 import { figureCaption, imageFilesReady, insertBodyImages } from "./lib/article-images.js";
 import { metaDescription } from "./lib/meta-description.js";
 import { formatValidationErrors, validatePostsDir } from "./lib/validate-posts.js";
+import { enforceLegalGate, hasImageRecord, isHeldPost, keepImage, keepImages } from "./lib/legal-gate.js";
 import { relatedPosts, relatedStories } from "./lib/related.js";
 import { adsenseEnabled, adsensePublisherId } from "./lib/ads.js";
 import { isSitemapEntry } from "./lib/listing-index.js";
@@ -75,9 +76,12 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("metaDescription", (summary) => metaDescription(summary, site.description));
   eleventyConfig.addFilter("relatedPosts", (posts, current) => relatedStories(posts, current, 5));
   eleventyConfig.addFilter("sitemapEntry", (item) => isSitemapEntry(item));
+  eleventyConfig.addFilter("keptImage", (image) => keepImage(image));
+  eleventyConfig.addFilter("keptImages", (images) => keepImages(images));
+  eleventyConfig.addFilter("hasProvenance", (src) => hasImageRecord(src));
   eleventyConfig.addFilter("newsroomPosts", (posts) =>
     (posts || [])
-      .filter((post) => post.data.draft !== true && post.data.sample !== true)
+      .filter((post) => post.data.draft !== true && post.data.sample !== true && !isHeldPost(post.inputPath))
       .sort((a, b) => {
         const delta = new Date(b.date) - new Date(a.date);
         if (delta) return delta;
@@ -96,18 +100,19 @@ export default function (eleventyConfig) {
     api
       .getFilteredByGlob("src/content/posts/**/*.md")
       .filter((post) => includeDrafts || post.data.draft !== true)
+      .filter((post) => includeDrafts || !isHeldPost(post.inputPath))
       .sort((a, b) => b.date - a.date),
   );
   eleventyConfig.addCollection("publishedPosts", (api) =>
     api
       .getFilteredByGlob("src/content/posts/**/*.md")
-      .filter((post) => post.data.draft !== true && post.data.sample !== true)
+      .filter((post) => post.data.draft !== true && post.data.sample !== true && !isHeldPost(post.inputPath))
       .sort((a, b) => b.date - a.date),
   );
   eleventyConfig.addCollection("publicTagList", (api) => {
     const tags = new Set();
     for (const post of api.getFilteredByGlob("src/content/posts/**/*.md")) {
-      if (post.data.draft === true || post.data.sample === true) continue;
+      if (post.data.draft === true || post.data.sample === true || isHeldPost(post.inputPath)) continue;
       for (const tag of post.data.tags || []) {
         if (typeof tag === "string" && tag.trim() && tag !== "post") tags.add(tag.trim());
       }
@@ -132,6 +137,7 @@ export default function (eleventyConfig) {
     if (site.gaMeasurementId && !/^G-[A-Z0-9]+$/.test(site.gaMeasurementId)) {
       throw new Error(`gaMeasurementId must look like G-XXXXXXXX. Found: ${site.gaMeasurementId}`);
     }
+    enforceLegalGate();
     const dir = process.env.POSTS_DIR || "src/content/posts";
     const result = validatePostsDir(dir);
     if (!result.ok) {

@@ -6,6 +6,7 @@ import fs from "node:fs";
 import site from "../src/_data/site.js";
 import topics from "../src/_data/topics.js";
 import { urlsFromSitemap } from "../lib/indexnow.js";
+import { heldUrlsIn, isHeldPost } from "../lib/legal-gate.js";
 
 const [base, head = "HEAD"] = process.argv.slice(2);
 const all = urlsFromSitemap(fs.readFileSync("_site/sitemap.xml", "utf8"));
@@ -17,7 +18,7 @@ try {
   process.exit(0);
 }
 const root = site.url.replace(/\/$/, "");
-const posts = files.filter((f) => /^src\/content\/posts\/[^/]+\.md$/.test(f));
+const posts = files.filter((f) => /^src\/content\/posts\/[^/]+\.md$/.test(f) && !isHeldPost(f));
 const siteWide = files.some((f) => /^(src\/(?!content\/posts\/)|lib\/|eleventy\.config)/.test(f));
 let urls = siteWide
   ? all
@@ -31,4 +32,6 @@ let urls = siteWide
       ]
     : [];
 const live = new Set(all);
-console.log([...new Set(urls)].filter((u) => live.has(u)).join("\n"));
+const liveUrls = [...new Set(urls)].filter((u) => live.has(u));
+const blocked = new Set(heldUrlsIn(liveUrls));
+console.log(liveUrls.filter((u) => !blocked.has(u)).join("\n"));

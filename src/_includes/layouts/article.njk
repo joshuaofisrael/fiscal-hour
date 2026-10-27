@@ -28,16 +28,17 @@ layout: layouts/base.njk
   {% elif disclaimer == "legal" %}
   <p class="article-disclaimer" role="note">This is not legal advice. It is a report.</p>
   {% endif %}
-  {% if hero and hero.src %}
-  <figure class="story-figure story-hero{% if not (hero.src | imageFilesReady) %} is-slot{% endif %}">
-    {% set srcBase = hero.src %}
-    {% set imageAlt = hero.alt %}
-    {% set imageWidth = hero.width %}
-    {% set imageHeight = hero.height %}
+  {% set heroOut = hero | keptImage %}
+  {% if heroOut and heroOut.src %}
+  <figure class="story-figure story-hero{% if not (heroOut.src | imageFilesReady) %} is-slot{% endif %}">
+    {% set srcBase = heroOut.src %}
+    {% set imageAlt = heroOut.alt %}
+    {% set imageWidth = heroOut.width %}
+    {% set imageHeight = heroOut.height %}
     {% set imageLoading = "eager" %}
     {% set imagePriority = "high" %}
     {% include "partials/picture.njk" %}
-    {% set heroCaption = hero.caption | figureCaption %}
+    {% set heroCaption = heroOut.caption | figureCaption %}
     {% if heroCaption %}
     <figcaption><span class="figure-caption">{{ heroCaption }}</span></figcaption>
     {% endif %}
@@ -45,7 +46,7 @@ layout: layouts/base.njk
   {% endif %}
   {% include "partials/story-figure.njk" %}
   <div class="prose">
-    {{ content | insertBodyImages(images) | safe }}
+    {{ content | insertBodyImages(images | keptImages) | safe }}
   </div>
   <p class="more-in">More in <a href="{{ ('/category/' ~ (category | categorySlug) ~ '/') | url }}">{{ category }}</a>.</p>
   {% set related = collections.publishedPosts | relatedPosts({ url: page.url, category: category, tags: tags, topics: topics }) %}
