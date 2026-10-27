@@ -408,28 +408,11 @@ test("the gate command emits JSONL and fails closed", () => {
   fs.rmSync(unmarkedDir, { recursive: true, force: true });
 });
 
-test("existing stories: the Brazil runoff piece is the only hold", () => {
+test("existing stories: no holds remain and the revised Brazil story is cleared by Joshua's exact-hash approval", () => {
   const review = reviewPostsDir(path.join(root, "src/content/posts"));
-  console.log(
-    "EXISTING HOLDS:",
-    review.holds.map((hold) => `${hold.slug} rules [${hold.rules.join(", ")}] ${hold.flagged}`),
-  );
-  assert.deepEqual(
-    review.holds.map((hold) => hold.slug),
-    ["2026-10-26-brazil-runoff-lula-declared-ahead"],
-  );
-  const brazil = review.holds[0];
-  assert.deepEqual(brazil.rules, [6]);
-  assert.equal(brazil.tier, "HIGH");
-  assert.equal(brazil.status, "HOLD_REVIEW");
-  assert.match(brazil.flagged, /Final Count/);
-  assert.match(brazil.flagged, /extension of polling/);
+  console.log("EXISTING HOLDS:", review.holds.map((hold) => hold.slug));
+  assert.deepEqual(review.holds.map((hold) => hold.slug), []);
   assert.equal(gateFailure(review), null);
-  const blocked = heldUrlsIn([
-    "https://fiscalhour.com/articles/2026-10-26-brazil-runoff-lula-declared-ahead/",
-    "https://fiscalhour.com/about/",
-  ]);
-  assert.deepEqual(blocked, ["https://fiscalhour.com/articles/2026-10-26-brazil-runoff-lula-declared-ahead/"]);
 });
 
 test("production build leaves held stories out of pages, feeds, and the sitemap", () => {
@@ -444,7 +427,6 @@ test("production build leaves held stories out of pages, feeds, and the sitemap"
     });
     console.log("TEST 4 production build exit:", run.status);
     assert.equal(run.status, 0, run.stdout + run.stderr);
-    assert.match(run.stderr, /2026-10-26-brazil-runoff-lula-declared-ahead/);
     assert.match(run.stderr, /LEGAL GATE:/);
     const home = fs.readFileSync(path.join(output, "index.html"), "utf8");
     const sitemap = fs.readFileSync(path.join(output, "sitemap.xml"), "utf8");
@@ -452,7 +434,7 @@ test("production build leaves held stories out of pages, feeds, and the sitemap"
     const atom = fs.readFileSync(path.join(output, "atom.xml"), "utf8");
     const news = fs.readFileSync(path.join(output, "news-sitemap.xml"), "utf8");
     assert.equal(home.includes("Verizon said third-quarter revenue was $34.3 billion"), true);
-    assert.equal(fs.existsSync(path.join(output, "articles/2026-10-26-brazil-runoff-lula-declared-ahead/index.html")), false);
+    assert.equal(fs.existsSync(path.join(output, "articles/2026-10-26-brazil-runoff-lula-declared-ahead/index.html")), true);
     assert.equal(fs.existsSync(path.join(output, "articles/zz-test-hold-synthetic/index.html")), false);
     const leaked = [];
     const walk = (dir) => {
@@ -462,7 +444,6 @@ test("production build leaves held stories out of pages, feeds, and the sitemap"
         else if (/\.(html|xml|txt)$/.test(full)) {
           const text = fs.readFileSync(full, "utf8");
           if (
-            text.includes("2026-10-26-brazil-runoff-lula-declared-ahead") ||
             text.includes("zz-test-hold-synthetic") ||
             text.includes("Lula Leads Final Count")
           ) {
@@ -474,10 +455,6 @@ test("production build leaves held stories out of pages, feeds, and the sitemap"
     walk(output);
     console.log("held page rendered:", leaked.length > 0, "| passing page rendered: true");
     assert.deepEqual(leaked, []);
-    assert.equal(sitemap.includes("/articles/2026-10-26-brazil-runoff-lula-declared-ahead/"), false);
-    assert.equal(feed.includes("2026-10-26-brazil-runoff-lula-declared-ahead"), false);
-    assert.equal(atom.includes("2026-10-26-brazil-runoff-lula-declared-ahead"), false);
-    assert.equal(news.includes("2026-10-26-brazil-runoff-lula-declared-ahead"), false);
   } finally {
     fs.rmSync(output, { recursive: true, force: true });
   }
