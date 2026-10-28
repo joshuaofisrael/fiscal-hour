@@ -66,6 +66,13 @@ function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+function htmlText(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
 function listingPages(subdir) {
   const dir = path.join(root, "_site", subdir);
   if (!fs.existsSync(dir)) return [];
@@ -287,9 +294,25 @@ test("production build passes and keeps the legal name off the chrome", { timeou
     assert.doesNotMatch(llms, /No article has been published yet/);
     assert.match(feed, /<item>/);
     assert.match(atom, /<entry>/);
+    const archive = read("_site", "archive/index.html");
+    const newest = [...published]
+      .sort((a, b) => {
+        const delta = new Date(b.data.date) - new Date(a.data.date);
+        if (delta) return delta;
+        return b.file.localeCompare(a.file);
+      })
+      .slice(0, 20);
+    const onHome = new Set(newest.map((post) => post.data.title));
+    if (published.length > 20) assert.match(home, /href="\/archive\/"/);
     for (const post of published) {
       const loc = `/articles/${post.file}/`;
-      assert.match(home, new RegExp(escapeRegExp(post.data.title)));
+      const title = new RegExp(escapeRegExp(htmlText(post.data.title)));
+      if (onHome.has(post.data.title)) assert.match(home, title);
+      else {
+        const page = read("_site", `articles/${post.file}/index.html`);
+        assert.match(page, title);
+      }
+      assert.match(archive, title);
       assert.match(sitemap, new RegExp(escapeRegExp(loc)));
       assert.match(llms, new RegExp(escapeRegExp(post.data.title)));
     }
@@ -413,8 +436,13 @@ This page checks the article template. It is not a news report.
     if (marketsPublished.length === 0) {
       assert.doesNotMatch(article, /<h2 id="related-heading">/);
     } else {
+      const latestMarkets = [...marketsPublished].sort((a, b) => {
+        const delta = new Date(b.data.date) - new Date(a.data.date);
+        if (delta) return delta;
+        return a.file.localeCompare(b.file);
+      })[0];
       assert.match(article, /<h2 id="related-heading">/);
-      assert.match(article, new RegExp(`/articles/${marketsPublished[0].file}/`));
+      assert.match(article, new RegExp(`/articles/${latestMarkets.file}/`));
       assert.doesNotMatch(article, /href="\/articles\/2026-10-24-layout-check\/"/);
     }
     assert.equal(fs.existsSync(path.join(root, "_site/articles/2026-10-24-layout-check/index.html")), false);
