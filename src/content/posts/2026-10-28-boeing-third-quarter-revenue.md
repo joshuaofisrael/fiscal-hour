@@ -22,7 +22,7 @@ images:
     width: 1280
     height: 720
   - src: boeing-results-hangar
-    alt: "Empty aircraft hangar with a bare fuselage section and overhead lights, with no lettering and no people"
+    alt: "Unmarked white twin-engine jet parked in a bright maintenance hangar, with no lettering and no people"
     after: 5
     width: 1280
     height: 720
