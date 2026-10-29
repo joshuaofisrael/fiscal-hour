@@ -22,7 +22,7 @@ images:
     width: 1280
     height: 720
   - src: fomc-clock
-    alt: "Close view of a simple round brass wall clock on pale stone, with no seal and no other text"
+    alt: "Plain round wall clock with tick marks and no numerals on a pale stone hallway wall, with no text and no people"
     after: 4
     width: 1280
     height: 720
