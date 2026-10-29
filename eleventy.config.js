@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import site from "./src/_data/site.js";
-import { formatDisplayDate, isFreshNews, toIso, toRfc822 } from "./lib/dates.js";
+import { formatDisplayDate, isFreshNews, isFutureDated, toIso, toRfc822 } from "./lib/dates.js";
 import { freshNewsPosts, renderNewsSitemap } from "./lib/news-sitemap.js";
 import { absoluteUrl, pathPrefixFromSiteUrl, prefixRootUrls } from "./lib/site-url.js";
 import { buildCrumbs, renderBreadcrumbNav, renderJsonLd } from "./lib/structured-data.js";
@@ -14,6 +14,11 @@ import { isSitemapEntry } from "./lib/listing-index.js";
 
 const pathPrefix = pathPrefixFromSiteUrl(site.url);
 const includeDrafts = process.env.ELEVENTY_ENV === "development";
+
+function isUnreleased(post) {
+  if (includeDrafts) return false;
+  return isFutureDated(post?.data?.publishAt || post?.data?.date || post?.date);
+}
 
 function pageContext(bound) {
   const data = bound?.ctx ?? bound ?? {};
@@ -82,6 +87,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("newsroomPosts", (posts) =>
     (posts || [])
       .filter((post) => post.data.draft !== true && post.data.sample !== true && !isHeldPost(post.inputPath))
+      .filter((post) => !isUnreleased(post))
       .sort((a, b) => {
         const delta = new Date(b.date) - new Date(a.date);
         if (delta) return delta;
@@ -101,18 +107,21 @@ export default function (eleventyConfig) {
       .getFilteredByGlob("src/content/posts/**/*.md")
       .filter((post) => includeDrafts || post.data.draft !== true)
       .filter((post) => includeDrafts || !isHeldPost(post.inputPath))
+      .filter((post) => !isUnreleased(post))
       .sort((a, b) => b.date - a.date),
   );
   eleventyConfig.addCollection("publishedPosts", (api) =>
     api
       .getFilteredByGlob("src/content/posts/**/*.md")
       .filter((post) => post.data.draft !== true && post.data.sample !== true && !isHeldPost(post.inputPath))
+      .filter((post) => !isUnreleased(post))
       .sort((a, b) => b.date - a.date),
   );
   eleventyConfig.addCollection("publicTagList", (api) => {
     const tags = new Set();
     for (const post of api.getFilteredByGlob("src/content/posts/**/*.md")) {
       if (post.data.draft === true || post.data.sample === true || isHeldPost(post.inputPath)) continue;
+      if (isUnreleased(post)) continue;
       for (const tag of post.data.tags || []) {
         if (typeof tag === "string" && tag.trim() && tag !== "post") tags.add(tag.trim());
       }

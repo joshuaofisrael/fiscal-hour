@@ -2,12 +2,18 @@ import site from "../../_data/site.js";
 import topics from "../../_data/topics.js";
 import { topicsFor } from "../../../lib/topics.js";
 import { isDraft } from "../../../lib/validate-posts.js";
+import { isFutureDated } from "../../../lib/dates.js";
 import { isHeldPost } from "../../../lib/legal-gate.js";
 
 const includeDrafts = process.env.ELEVENTY_ENV === "development";
 
 function held(data) {
   return Boolean(data.page?.inputPath && isHeldPost(data.page.inputPath));
+}
+
+function unreleased(data) {
+  if (includeDrafts) return false;
+  return isFutureDated(data.publishAt || data.date);
 }
 
 export default {
@@ -26,12 +32,14 @@ export default {
     permalink(data) {
       if (isDraft(data.draft) && !includeDrafts) return false;
       if (held(data) && !includeDrafts) return false;
+      if (unreleased(data)) return false;
       const file = String(data.page.inputPath).split("/").pop().replace(/\.md$/, "");
       return `/articles/${file}/`;
     },
     eleventyExcludeFromCollections(data) {
       if (isDraft(data.draft) && !includeDrafts) return true;
       if (held(data) && !includeDrafts) return true;
+      if (unreleased(data)) return true;
       return false;
     },
   },

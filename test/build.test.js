@@ -6,7 +6,7 @@ import { test } from "node:test";
 import matter from "gray-matter";
 import site from "../src/_data/site.js";
 import faq from "../src/_data/faq.js";
-import { isFreshNews } from "../lib/dates.js";
+import { isFreshNews, isFutureDated } from "../lib/dates.js";
 import { isThinListing, siteListingCounts } from "../lib/listing-index.js";
 import { isHeldPost } from "../lib/legal-gate.js";
 
@@ -58,6 +58,7 @@ function listPublishedPosts() {
     })
     .filter((post) => {
       if (post.data.draft === true || post.data.sample === true) return false;
+      if (isFutureDated(post.data.publishAt || post.data.date)) return false;
       return !isHeldPost(path.join(dir, `${post.file}.md`));
     });
 }
@@ -111,6 +112,15 @@ test("production build passes and keeps the legal name off the chrome", { timeou
   fs.rmSync(path.join(root, "_site"), { recursive: true, force: true });
   const prod = runEleventy(["--output=_site"], { ELEVENTY_ENV: "production" });
   assert.equal(prod.status, 0, prod.stdout + prod.stderr);
+
+  const postsDir = path.join(root, "src/content/posts");
+  for (const name of fs.readdirSync(postsDir).filter((entry) => entry.endsWith(".md"))) {
+    const parsed = matter(fs.readFileSync(path.join(postsDir, name), "utf8"));
+    if (parsed.data.draft === true || parsed.data.sample === true) continue;
+    if (!isFutureDated(parsed.data.publishAt || parsed.data.date)) continue;
+    const page = path.join(root, "_site", "articles", name.replace(/\.md$/, ""), "index.html");
+    assert.equal(fs.existsSync(page), false, `${name} is still scheduled`);
+  }
 
   const home = read("_site", "index.html");
   const robots = read("_site", "robots.txt");
@@ -451,4 +461,59 @@ This page checks the article template. It is not a news report.
     fs.rmSync(path.join(root, "_site-dev"), { recursive: true, force: true });
     fs.rmSync(path.join(root, "_site-invalid"), { recursive: true, force: true });
   }
+});
+
+test("a scheduled story is built only after its publishAt time", { timeout: 180000 }, () => {
+  const early = runEleventy(["--output=_site-schedule-early"], {
+    ELEVENTY_ENV: "production",
+    SCHEDULE_NOW: "2026-10-29T08:00:00.000Z",
+  });
+  assert.equal(early.status, 0, early.stdout + early.stderr);
+  assert.equal(fs.existsSync(path.join(root, "_site-schedule-early/articles/2026-10-29-fed-holds-funds-rate/index.html")), false);
+  assert.equal(fs.existsSync(path.join(root, "_site-schedule-early/articles/2026-10-29-microsoft-fiscal-first-quarter-revenue/index.html")), false);
+  assert.equal(fs.existsSync(path.join(root, "_site-schedule-early/articles/2026-10-29-fdic-deposit-insurance-limit/index.html")), false);
+
+  const midday = runEleventy(["--output=_site-schedule"], {
+    ELEVENTY_ENV: "production",
+    SCHEDULE_NOW: "2026-10-29T16:00:00.000Z",
+  });
+  assert.equal(midday.status, 0, midday.stdout + midday.stderr);
+  const fed = read("_site-schedule", "articles/2026-10-29-fed-holds-funds-rate/index.html");
+  const microsoft = read("_site-schedule", "articles/2026-10-29-microsoft-fiscal-first-quarter-revenue/index.html");
+  assert.match(fed, /index, follow/);
+  assert.match(fed, /"@type":"NewsArticle"/);
+  assert.match(fed, /fed-hold-hero\.webp/);
+  assert.match(fed, /Federal Reserve issues FOMC statement/);
+  assert.doesNotMatch(fed, /Joshua|Ventures/);
+  assert.match(microsoft, /msft-results-hero\.webp/);
+  assert.match(microsoft, /\$92\.3 billion/);
+  assert.equal(
+    fs.existsSync(path.join(root, "_site-schedule/articles/2026-10-29-fdic-deposit-insurance-limit/index.html")),
+    false,
+  );
+  const sitemap = read("_site-schedule", "sitemap.xml");
+  const news = read("_site-schedule", "news-sitemap.xml");
+  const home = read("_site-schedule", "index.html");
+  assert.match(sitemap, /2026-10-29-fed-holds-funds-rate/);
+  assert.match(sitemap, /2026-10-29-microsoft-fiscal-first-quarter-revenue/);
+  assert.doesNotMatch(sitemap, /2026-10-29-fdic-deposit-insurance-limit/);
+  assert.match(news, /2026-10-29T11:00:00Z/);
+  assert.match(news, /2026-10-29T15:00:00Z/);
+  assert.match(home, /Federal Reserve holds the funds rate/);
+  assert.match(home, /Microsoft said fiscal first-quarter revenue/);
+  assert.doesNotMatch(home, /FDIC deposit insurance is/);
+
+  const dev = runEleventy(["--output=_site-schedule-dev"], {
+    ELEVENTY_ENV: "development",
+    SCHEDULE_NOW: "2026-10-29T08:00:00.000Z",
+  });
+  assert.equal(dev.status, 0, dev.stdout + dev.stderr);
+  assert.equal(
+    fs.existsSync(path.join(root, "_site-schedule-dev/articles/2026-10-29-fdic-deposit-insurance-limit/index.html")),
+    true,
+  );
+
+  fs.rmSync(path.join(root, "_site-schedule-early"), { recursive: true, force: true });
+  fs.rmSync(path.join(root, "_site-schedule"), { recursive: true, force: true });
+  fs.rmSync(path.join(root, "_site-schedule-dev"), { recursive: true, force: true });
 });

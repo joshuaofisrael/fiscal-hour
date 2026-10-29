@@ -30,7 +30,7 @@ npm run dev
 
 Create a new file. Do not invent a fact, a quote, a price, or an event to fill a gap.
 
-1. Add `src/content/posts/YYYY-MM-DD-short-slug.md`. The date in the filename and the `date` field should match, written as `YYYY-MM-DD`.
+1. Add `src/content/posts/YYYY-MM-DD-short-slug.md`. The date in the filename and the calendar day of the `date` field should match. A date written as `YYYY-MM-DD` publishes on the next production build. A full timestamp, `2026-10-29T11:00:00.000Z`, waits until that time. Set the same timestamp on `publishAt`. The production build leaves the story out of the pages, feeds, and sitemaps until then. `npm run dev` still shows it.
 2. Copy the front matter below. Keep `draft: true` while you check the sources.
 3. Write the story in Markdown. Link each factual claim to a named source in the sentence it supports.
 4. Add a hero and at least two body pictures. Save each as WebP and AVIF under `src/assets/images/`, about 1280 by 720. Do not put a visible AI caption on a picture. The disclosure lives on `/disclaimer/`.
@@ -155,6 +155,8 @@ npm run indexnow
 ## Pages deploy
 
 [`.github/workflows/pages.yml`](.github/workflows/pages.yml) runs the tests, the legal hold gate, and the production build on pull requests and on pushes to `main`. Pushes to `main` run the gate again on `_site` before they upload it, including `CNAME`, and deploy it to GitHub Pages. The upload does not run when the gate fails.
+
+[`.github/workflows/publish-scheduled.yml`](.github/workflows/publish-scheduled.yml) rebuilds and deploys `main` when a story's `publishAt` has come due. The crons are 11:05, 11:35, 15:05, 15:35, 19:05, 19:35, and 22:05 UTC. On 29 Oct 2026 London is UTC+0, so those first slots are 11:00, 15:00, and 19:00 London, with a half-hour retry and a 22:05 catch-up. The workflow does not edit the story. It runs the tests and the legal hold gate, then uploads the site. A missed earlier slot is still picked up by a later run the same day, because the build includes every story whose time has passed.
 
 ## Layout
 

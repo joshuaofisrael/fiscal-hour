@@ -1,0 +1,85 @@
+name: Publish scheduled articles
+
+# London is UTC+0 on 29 Oct 2026. Stories are stamped 11:00, 15:00 and
+# 19:00 UTC. GitHub's cron can start late, so each slot has a retry 30
+# minutes later, and 22:05 UTC is a same-day catch-up. The script asks
+# for a rebuild only when a story's publishAt fell inside the lookback
+# window. This workflow runs the tests and the legal hold gate, then
+# deploys. A story dated in the future stays out of that build.
+on:
+  schedule:
+    - cron: "5 11 * * *"
+    - cron: "35 11 * * *"
+    - cron: "5 15 * * *"
+    - cron: "35 15 * * *"
+    - cron: "5 19 * * *"
+    - cron: "35 19 * * *"
+    - cron: "5 22 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Rebuild even if no story just became due"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-scheduled
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    outputs:
+      due: ${{ steps.due.outputs.due }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: See if a story is due
+        id: due
+        env:
+          FORCE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && 'true' || 'false' }}
+        run: node scripts/scheduled-publish.js >> "$GITHUB_OUTPUT"
+      - name: Test
+        if: steps.due.outputs.due == 'true'
+        run: npm test
+      - name: Legal hold gate
+        if: steps.due.outputs.due == 'true'
+        run: node scripts/legal-gate.js
+      - name: Build
+        if: steps.due.outputs.due == 'true'
+        run: npm run build
+      - name: Legal hold gate on site output
+        if: steps.due.outputs.due == 'true'
+        run: node scripts/legal-gate.js --check-output _site
+      - name: Setup Pages
+        if: steps.due.outputs.due == 'true'
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        if: steps.due.outputs.due == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    if: needs.publish.outputs.due == 'true'
+    needs: publish
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
