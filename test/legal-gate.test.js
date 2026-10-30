@@ -433,7 +433,11 @@ test("production build leaves held stories out of pages, feeds, and the sitemap"
     const feed = fs.readFileSync(path.join(output, "feed.xml"), "utf8");
     const atom = fs.readFileSync(path.join(output, "atom.xml"), "utf8");
     const news = fs.readFileSync(path.join(output, "news-sitemap.xml"), "utf8");
-    assert.equal(home.includes("Verizon said third-quarter revenue was $34.3 billion"), true);
+    // Latest on the homepage is capped at 20, so an older published headline
+    // rotates off when a new batch lands. The sitemap still has to include it,
+    // and the homepage still has to list real article pages.
+    assert.match(sitemap, /2026-10-27-verizon-third-quarter-results/);
+    assert.match(home, /href="\/articles\/20/);
     assert.equal(fs.existsSync(path.join(output, "articles/2026-10-26-brazil-runoff-lula-declared-ahead/index.html")), true);
     assert.equal(fs.existsSync(path.join(output, "articles/zz-test-hold-synthetic/index.html")), false);
     const leaked = [];
