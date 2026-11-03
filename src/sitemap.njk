@@ -9,7 +9,7 @@ sitemapIgnore: true
 {% if item | sitemapEntry %}
   <url>
     <loc>{{ item.url | absoluteUrl }}</loc>
-    {% set stamp = item.date | isoDate %}
+    {% set stamp = item.data.date | isoDate %}
     {% if stamp %}
     <lastmod>{{ stamp }}</lastmod>
     {% endif %}
