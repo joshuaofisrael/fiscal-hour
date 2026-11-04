@@ -2,7 +2,7 @@
 title: "Datadog Shares Fall Despite Q3 Beat as Fourth-Quarter Outlook Disappoints"
 description: "Datadog beat third-quarter estimates with $1.20 billion in revenue, up 35%, but shares fell sharply on Wednesday after a fourth-quarter outlook roughly flat..."
 summary: "Datadog beat third-quarter estimates with $1.20 billion in revenue, up 35%, but shares fell sharply on Wednesday after a fourth-quarter outlook roughly flat with Q3."
-date: 2026-11-04
+date: 2026-11-04T16:30:00Z
 updatedAt: 2026-11-04
 category: Markets
 tags:
