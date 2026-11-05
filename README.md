@@ -136,7 +136,7 @@ The production build writes:
 - `/sitemap.xml` for pages and published articles. A tag page, category page, or topic hub with fewer than two published stories is left out, and that page sends `noindex,follow`. The count updates when stories are added.
 - `/news-sitemap.xml` in the Google News format, for published articles from the last two days. With none in the window, the file stays valid XML and contains a comment instead of URL entries. `robots.txt` and `llms.txt` list that file only when it has articles.
 - `/feed.xml` (RSS) and `/atom.xml` (Atom)
-- `/robots.txt`, which allows Googlebot, Bingbot, GPTBot, ClaudeBot, CCBot, Google-Extended, Bytespider, OAI-SearchBot, PerplexityBot, and Applebot-Extended
+- `/robots.txt`, which allows Googlebot, Mediapartners-Google, Bingbot, GPTBot, ClaudeBot, CCBot, Google-Extended, Bytespider, OAI-SearchBot, PerplexityBot, and Applebot-Extended
 - `/llms.txt`
 - `/{indexNowKey}.txt`, the IndexNow key file
 - `/ads.txt`

@@ -1,7 +1,7 @@
 import { normalizeSiteUrl } from "../../lib/site-url.js";
 import { adsensePublisherId } from "../../lib/ads.js";
 
-const adsenseClient = "";
+const adsenseClient = "ca-pub-5681559774142917";
 const gaMeasurementId = "G-MYEYDB0G8G";
 
 const site = {
@@ -34,6 +34,7 @@ const site = {
   buildTime: new Date().toISOString(),
   crawlers: [
     "Googlebot",
+    "Mediapartners-Google",
     "Bingbot",
     "GPTBot",
     "ClaudeBot",

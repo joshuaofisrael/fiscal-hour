@@ -13,7 +13,7 @@ import { isHeldPost } from "../lib/legal-gate.js";
 const root = path.resolve(import.meta.dirname, "..");
 const bin = path.join(root, "node_modules", ".bin", "eleventy");
 const EV_INDEXNOW_KEY = "e636da750714fc9967b0f4946b707533";
-const EV_ADSENSE = "ca-pub-5681559774142917";
+const ADSENSE_CLIENT = "ca-pub-5681559774142917";
 
 function runEleventy(args, env) {
   return spawnSync(bin, args, {
@@ -182,7 +182,8 @@ test("production build passes and keeps the legal name off the chrome", { timeou
   );
   assert.equal(Object.hasOwn(homeJson["@graph"].find((node) => node["@type"] === "NewsMediaOrganization"), "sameAs"), false);
   assert.doesNotMatch(home, /Joshua|Ventures|All rights reserved|©/);
-  assert.doesNotMatch(home, /adsbygoogle|google-adsense-account/);
+  assert.match(home, new RegExp(`adsbygoogle\\.js\\?client=${escapeRegExp(site.adsenseClient)}`));
+  assert.match(home, new RegExp(`name="google-adsense-account" content="${escapeRegExp(site.adsenseClient)}"`));
   assert.match(home, /pagead2\.googlesyndication\.com/);
   assert.match(home, /static\.cloudflareinsights\.com/);
   assert.equal(site.gaMeasurementId, "G-MYEYDB0G8G");
@@ -237,6 +238,9 @@ test("production build passes and keeps the legal name off the chrome", { timeou
   assert.match(disclaimer, /<h2>AI-generated imagery<\/h2>/);
   assert.match(disclaimer, /do not depict real identifiable people or actual news events/);
   assert.match(privacy, /<h2>Advertising<\/h2>/);
+  assert.match(privacy, /Google AdSense/);
+  assert.match(privacy, /third-party/);
+  assert.match(privacy, /https:\/\/adssettings\.google\.com/);
   assert.match(privacy, /policies\.google\.com\/technologies\/ads/);
   assert.match(privacy, /Google Analytics 4/);
   assert.match(privacy, new RegExp(escapeRegExp(site.gaMeasurementId)));
@@ -247,7 +251,9 @@ test("production build passes and keeps the legal name off the chrome", { timeou
   assert.match(privacy, /https:\/\/policies\.google\.com\/privacy/);
   assert.match(privacy, /analytics storage stays denied/);
   assert.match(privacy, /Cloudflare Web Analytics beacon as the last script/);
-  assert.match(advertising, /does not load|not loaded|until a publisher id is set/i);
+  assert.match(advertising, /Google AdSense/);
+  assert.match(advertising, /third-party/);
+  assert.match(advertising, /https:\/\/adssettings\.google\.com/);
 
   const legalPages = [
     ["terms/index.html", terms],
@@ -285,6 +291,7 @@ test("production build passes and keeps the legal name off the chrome", { timeou
   assert.doesNotMatch(sitemap, /404\.html/);
 
   for (const name of site.crawlers) assert.match(robots, new RegExp(`User-agent: ${name}\\nAllow: /`));
+  assert.match(robots, /User-agent: Mediapartners-Google\nAllow: \//);
   assert.match(robots, /User-agent: \*\nAllow: \//);
   assert.doesNotMatch(robots, /disallow|noai|noimageai/i);
   assert.match(robots, new RegExp(`Sitemap: ${site.url}/sitemap\\.xml`));
@@ -340,10 +347,9 @@ test("production build passes and keeps the legal name off the chrome", { timeou
       assert.doesNotMatch(news, /<url>/);
     }
   }
-  assert.match(ads, /ads\.txt placeholder/);
-  assert.doesNotMatch(ads, /^google\.com,/m);
-  assert.doesNotMatch(ads, new RegExp(EV_ADSENSE));
-  assert.equal(site.adsenseClient, "");
+  assert.equal(site.adsenseClient, ADSENSE_CLIENT);
+  assert.equal(site.adsensePublisher, "pub-5681559774142917");
+  assert.equal(ads.trim(), `google.com, ${site.adsensePublisher}, DIRECT, ${site.adsenseCertificationAuthorityId}`);
   assert.match(site.cloudflareAnalyticsToken, /^([0-9a-f]{32})?$/);
 
   for (const url of [
