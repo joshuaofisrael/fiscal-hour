@@ -845,6 +845,17 @@
       "webp_sha256": "8285414c7d832708057f78fbb8ef8b28ffa2487c2dacd4d9c618899e58ba3e4c",
       "recorded": "2026-11-04",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "oil-biggest-fall-since-april-democrats-midterm-sweep-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot GenerateImage",
+      "prompt": "Oil tanker at anchor at dusk with coastal oil terminal tanks behind. No people, logos or text.",
+      "source_sha256": "bc72cb9914e53b6304f4fcf226d198f5cc3662422e0eb4960468298ed85e9479",
+      "webp_sha256": "d401a0a0eed4601fe246c2041798ba06fbaac34b0b6440bb78965faed2fe7472",
+      "recorded": "2026-11-04",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
     }
   }
 }
