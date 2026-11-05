@@ -7,7 +7,7 @@ updatedAt: 2026-11-05
 category: Markets
 tags:
   - midterms
-  - ai
+  - AI
   - data-centers
   - stocks
 hero:
@@ -59,4 +59,4 @@ CNBC also notes CoreWeave, Nebius and Iren shares fell at least 30% in October a
 
 ## How to read it
 
-The midterm-to-markets story is conditional: it depends on how state permitting actually changes and whether credit markets keep discriminating against leveraged AI infrastructure names. Near-term supply already in the ground limits how fast politics can choke 2027 deliveries, per Nomura via CNBC. The settled facts for today are the reported price moves, the Fed's still-elevated policy rate from the October statement, and the financing gap Sullivan described—not a guaranteed multi-year freeze on every U.S. data-center project.
+The midterm-to-markets story is conditional: it depends on how state permitting actually changes and whether credit markets keep discriminating against leveraged AI infrastructure names. Near-term supply already in the ground limits how fast politics can choke 2027 deliveries, per Nomura via CNBC. The settled facts for today are the reported price moves, the Fed's still-elevated policy rate from the October statement, and the financing gap Sullivan described. Those facts alone do not establish a multi-year freeze on every U.S. data-center project.
