@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import site from "./src/_data/site.js";
-import { formatDisplayDate, isFreshNews, isFutureDated, toIso, toRfc822 } from "./lib/dates.js";
+import { coerceDate, formatDisplayDate, isFreshNews, isFutureDated, toIso, toRfc822 } from "./lib/dates.js";
 import { freshNewsPosts, renderNewsSitemap } from "./lib/news-sitemap.js";
 import { absoluteUrl, pathPrefixFromSiteUrl, prefixRootUrls } from "./lib/site-url.js";
 import { buildCrumbs, renderBreadcrumbNav, renderJsonLd } from "./lib/structured-data.js";
@@ -19,6 +19,25 @@ function isUnreleased(post) {
   if (includeDrafts) return false;
   return isFutureDated(post?.data?.publishAt || post?.data?.date || post?.date);
 }
+
+
+function publishMs(post) {
+  // Prefer publishAt, then frontmatter date, then Eleventy's page date.
+  // Date-only values stay midnight UTC so they are not wrongly treated as future.
+  const raw = post?.data?.publishAt || post?.data?.date || post?.date;
+  const when = coerceDate(raw);
+  return when ? when.getTime() : 0;
+}
+
+function byNewestPublish(a, b) {
+  const delta = publishMs(b) - publishMs(a);
+  if (delta) return delta;
+  // Deterministic tie-break only when timestamps match exactly.
+  return String(b.page?.inputPath || b.inputPath || "").localeCompare(
+    String(a.page?.inputPath || a.inputPath || ""),
+  );
+}
+
 
 function pageContext(bound) {
   const data = bound?.ctx ?? bound ?? {};
@@ -88,11 +107,7 @@ export default function (eleventyConfig) {
     (posts || [])
       .filter((post) => post.data.draft !== true && post.data.sample !== true && !isHeldPost(post.inputPath))
       .filter((post) => !isUnreleased(post))
-      .sort((a, b) => {
-        const delta = new Date(b.date) - new Date(a.date);
-        if (delta) return delta;
-        return String(b.page?.inputPath || "").localeCompare(String(a.page?.inputPath || ""));
-      }),
+      .sort(byNewestPublish),
   );
 
   eleventyConfig.addShortcode("structuredData", function () {
@@ -108,14 +123,14 @@ export default function (eleventyConfig) {
       .filter((post) => includeDrafts || post.data.draft !== true)
       .filter((post) => includeDrafts || !isHeldPost(post.inputPath))
       .filter((post) => !isUnreleased(post))
-      .sort((a, b) => b.date - a.date),
+      .sort(byNewestPublish),
   );
   eleventyConfig.addCollection("publishedPosts", (api) =>
     api
       .getFilteredByGlob("src/content/posts/**/*.md")
       .filter((post) => post.data.draft !== true && post.data.sample !== true && !isHeldPost(post.inputPath))
       .filter((post) => !isUnreleased(post))
-      .sort((a, b) => b.date - a.date),
+      .sort(byNewestPublish),
   );
   eleventyConfig.addCollection("publicTagList", (api) => {
     const tags = new Set();

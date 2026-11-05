@@ -307,7 +307,8 @@ test("production build passes and keeps the legal name off the chrome", { timeou
     const archive = read("_site", "archive/index.html");
     const newest = [...published]
       .sort((a, b) => {
-        const delta = new Date(b.data.date) - new Date(a.data.date);
+        const stamp = (post) => new Date(post.data.publishAt || post.data.date).getTime();
+        const delta = stamp(b) - stamp(a);
         if (delta) return delta;
         return b.file.localeCompare(a.file);
       })
