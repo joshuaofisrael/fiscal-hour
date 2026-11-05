@@ -63,7 +63,7 @@ Supply data did not explain the drop. US crude inventories fell by 865,000 barre
 
 The national average price of gasoline was $4.12 a gallon on Wednesday morning, NBC News reported. Patrick De Haan, an analyst at GasBuddy, said oil's fall could bring it below $4 in the "days ahead."
 
-The oil slide came on the same day as [stock futures, AI shares and the dollar slid after the Democrats' sweep](/posts/stock-futures-ai-shares-dollar-slide-democrats-midterms/).
+The oil slide came on the same day as [stock futures, AI shares and the dollar slid after the Democrats' sweep](/articles/2026-11-04-stock-futures-ai-shares-dollar-slide-democrats-midterms/).
 
 Whether the fall holds depends on what happens next between Washington and Tehran. With a senior Iranian official saying the two sides are still far apart, traders will be watching for any sign of talks, or of escalation.
 
