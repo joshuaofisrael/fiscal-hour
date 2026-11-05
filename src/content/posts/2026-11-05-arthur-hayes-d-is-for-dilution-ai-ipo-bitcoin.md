@@ -15,6 +15,17 @@ hero:
   alt: "Abstract trading desk at night with blank monitors and candle-chart shapes made of light, no logos or readable text, no people"
   width: 1280
   height: 720
+images:
+  - src: arthur-hayes-d-is-for-dilution-ai-ipo-bitcoin-1
+    alt: "Empty night trading desk with blank monitors and candle-chart light shapes on the glass, no people or logos"
+    after: 2
+    width: 1280
+    height: 720
+  - src: arthur-hayes-d-is-for-dilution-ai-ipo-bitcoin-2
+    alt: "Blank share certificates stacked beside a softly lit Bitcoin coin near vault bars, no faces logos or readable text"
+    after: 5
+    width: 1280
+    height: 720
 sources:
   - title: "D is for Dilution essay promo"
     url: "https://x.com/CryptoHayes/status/2118194461528449450"
