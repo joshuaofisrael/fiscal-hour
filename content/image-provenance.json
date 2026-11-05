@@ -895,6 +895,34 @@
       "webp_sha256": "ece0392aeb184f7f565d63fcc172a1f39d217e3a0aa4ee724e165b8a219c1e74",
       "recorded": "2026-11-05",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Duplicate of the hero image."
+    },
+    "arthur-hayes-d-is-for-dilution-ai-ipo-bitcoin-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "arthur-hayes-d-is-for-dilution-ai-ipo-bitcoin-1": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot GenerateImage",
+      "prompt": "Photorealistic night trading desk scene, empty office, blank monitors casting soft blue light, abstract candle-chart shapes of light on the glass, no people, no logos, no readable text, cinematic finance atmosphere",
+      "source_sha256": "11fd970eece9f4df4f4fa8d8e6567a982202c17be85fc9d662e4d235dec4e0e5",
+      "webp_sha256": "a7d38ed957f56c08c7b7524a5d475ccdce689ecaf28631e9992c83eff5bca896",
+      "recorded": "2026-11-05",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "arthur-hayes-d-is-for-dilution-ai-ipo-bitcoin-2": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot GenerateImage",
+      "prompt": "Photorealistic abstract finance still life: stacked blank share certificates beside a softly lit Bitcoin coin silhouette and glowing bank vault bars in background, no faces, no logos, no readable text, soft studio light",
+      "source_sha256": "6eebfbb6941e232c3ea7ed49c35c1574d1cadfadb9b878bed131653b4c82fccc",
+      "webp_sha256": "ad605424c21f0556b4f5b794c84c861454f63b94969aaec8871d8798bc6aa8e1",
+      "recorded": "2026-11-05",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
     }
   }
 }
