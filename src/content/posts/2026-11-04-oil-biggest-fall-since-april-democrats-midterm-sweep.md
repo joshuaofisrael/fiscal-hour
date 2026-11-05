@@ -13,6 +13,17 @@ hero:
   alt: "An oil tanker at anchor on a calm grey sea at dusk, with the storage tanks of a coastal oil terminal in the distance"
   width: 1280
   height: 720
+images:
+  - src: oil-biggest-fall-since-april-democrats-midterm-sweep-1
+    alt: "Close crop: an oil tanker at anchor on a calm grey sea at dusk, with the storage tanks of a coastal oil terminal in the distance"
+    after: 2
+    width: 1280
+    height: 720
+  - src: oil-biggest-fall-since-april-democrats-midterm-sweep-2
+    alt: "Close crop: an oil tanker at anchor on a calm grey sea at dusk, with the storage tanks of a coastal oil terminal in the distance"
+    after: 5
+    width: 1280
+    height: 720
 sources:
   - title: "Crude oil prices fall below $90 a barrel as Vance blames GOP election defeat on Iran war"
     url: "https://www.cnbc.com/2026/11/04/oil-price-iran-war-us-election-strait-hormuz.html"
