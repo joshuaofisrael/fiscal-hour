@@ -2,7 +2,7 @@
 title: "Oil Posts Biggest One-Day Fall Since April After Democrats Sweep the Midterms"
 description: "WTI fell 8.3% to $88.12 and Brent 8.7% to $94.62 as traders bet the Democrats' midterm sweep makes a deal to end the Iran war more likely."
 summary: "WTI fell 8.3% to $88.12 and Brent 8.7% to $94.62 as traders bet the Democrats' midterm sweep makes a deal to end the Iran war more likely."
-date: 2026-11-04
+date: 2026-11-04T23:30:00Z
 updatedAt: 2026-11-04
 category: Markets
 tags:
