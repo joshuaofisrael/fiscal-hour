@@ -127,7 +127,7 @@ Fixtures under `test/legal-gate/` are not an Eleventy input. They are never buil
 
 > © 2026 Joshua Israel Ventures LLC. All rights reserved. FiscalHour is a trade name of Joshua Israel Ventures LLC, a Florida limited liability company.
 
-Do not add that line, or either name, to the header, the home page, About, a banner (including the analytics consent banner), or the footer. Do not add a copyright line to the footer. The contact form endpoint is `contactFormEndpoint` in `src/_data/site.js`. The default is `https://formsubmit.co/REPLACE_WITH_ALIAS`. Replace it with the FormSubmit alias. Do not commit the inbox address.
+Do not add that line, or either name, to the header, the home page, About, a banner (including the analytics consent banner), or the footer. Do not add a copyright line to the footer. The contact form endpoint is `contactFormEndpoint` in `src/_data/site.js` (FormSubmit hashed alias). Do not commit the inbox address.
 
 ## Discovery files
 

@@ -20,7 +20,7 @@ const site = {
   legalNotice:
     "© 2026 Joshua Israel Ventures LLC. All rights reserved. FiscalHour is a trade name of Joshua Israel Ventures LLC, a Florida limited liability company.",
   contactEmail: "",
-  contactFormEndpoint: "https://formsubmit.co/REPLACE_WITH_ALIAS",
+  contactFormEndpoint: "https://formsubmit.co/4497ee41a1200e746e967998473d21da",
   indexNowKey: "95ef7049f3b49637c55b979369df62e9",
   cloudflareAnalyticsToken: "c44e6c72bf1a4ddda7fa732f5219678c",
   gaMeasurementId,
