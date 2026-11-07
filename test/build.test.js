@@ -278,7 +278,7 @@ test("production build passes and keeps the legal name off the chrome", { timeou
   assert.deepEqual(identityHits, []);
 
   assert.match(contact, new RegExp(`action="${site.contactFormEndpoint}"`));
-  assert.equal(site.contactFormEndpoint, "https://formsubmit.co/REPLACE_WITH_ALIAS");
+  assert.equal(site.contactFormEndpoint, "https://formsubmit.co/4497ee41a1200e746e967998473d21da");
   assert.match(contact, /name="_honey"/);
   assert.match(contact, /name="_captcha" value="false"/);
   assert.match(contact, /name="_subject"/);
