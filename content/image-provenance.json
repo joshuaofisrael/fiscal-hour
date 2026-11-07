@@ -1013,6 +1013,105 @@
       "creator": "FiscalHour",
       "kind": "AI-generated photorealistic illustration",
       "permission": "Created for FiscalHour as a site-owned image. Not a third-party photograph."
+    },
+    "treasury-fincen-mexc-cut-off-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Neoclassical stone bank building with columns under an overcast sky, no faces logos or readable text",
+      "source_sha256": "44fa0314032f9dcd3f5c77721d417f5650802321d1508f64e5c6b2c31a3a42de",
+      "webp_sha256": "a944229d063e9ed7f2d5cb4b3a4f0fa337cccc97abb7b37ec5ee3712d7ba0b8e",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "treasury-fincen-mexc-cut-off-1": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Neoclassical stone bank building with columns under an overcast sky, no faces logos or readable text",
+      "source_sha256": "44fa0314032f9dcd3f5c77721d417f5650802321d1508f64e5c6b2c31a3a42de",
+      "webp_sha256": "c206008a099eb61f4479f80e550442db731cedb7847b474c7921d42f336492a0",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "treasury-fincen-mexc-cut-off-2": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Neoclassical stone bank building with columns under an overcast sky, no faces logos or readable text",
+      "source_sha256": "44fa0314032f9dcd3f5c77721d417f5650802321d1508f64e5c6b2c31a3a42de",
+      "webp_sha256": "a858bb53061a3bb840173a5c87f6748b768aabca5765743e38b3e59a143ae47c",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "bessent-jobs-reindustrialization-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Construction cranes over a rising residential tower at sunrise, no faces logos or readable text",
+      "source_sha256": "9fd04e5f2f87a7a112efa80f4d42080aa185ce2034f6c08adee18fd13683ead8",
+      "webp_sha256": "ae14561ecc2904f160f62c18181ee39d67b25448a9eb5bf40c292e3b88165e07",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "bessent-jobs-reindustrialization-1": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Construction cranes over a rising residential tower at sunrise, no faces logos or readable text",
+      "source_sha256": "9fd04e5f2f87a7a112efa80f4d42080aa185ce2034f6c08adee18fd13683ead8",
+      "webp_sha256": "1ef0aea7ebb99e11849c83e29fa8a71322631d46a67153547f3fbf45b4ebe55f",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "bessent-jobs-reindustrialization-2": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Construction cranes over a rising residential tower at sunrise, no faces logos or readable text",
+      "source_sha256": "9fd04e5f2f87a7a112efa80f4d42080aa185ce2034f6c08adee18fd13683ead8",
+      "webp_sha256": "d7c8119a0ba7d9f175a1e6d0690e3ef93bfdb8989aebe1364d3fe51b34d09350",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "fincen-fed-withdraw-250-crypto-travel-rule-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Glowing abstract digital coins resting on a network lit surface, no faces logos or readable text",
+      "source_sha256": "7469943d6e14f46e1a4cf370293048814c4f52eddcc6bd2e27fb2e3b1f1b4296",
+      "webp_sha256": "8677ef9ef8fe547b723f0e982b6b0e1168dc6003cef198959c45d97ec90af565",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "fincen-fed-withdraw-250-crypto-travel-rule-1": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Glowing abstract digital coins resting on a network lit surface, no faces logos or readable text",
+      "source_sha256": "7469943d6e14f46e1a4cf370293048814c4f52eddcc6bd2e27fb2e3b1f1b4296",
+      "webp_sha256": "e737988fbd4ac01b11a8cbd003a32dff8d6cb613270ddd27cb1d8ca746977382",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "fincen-fed-withdraw-250-crypto-travel-rule-2": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Glowing abstract digital coins resting on a network lit surface, no faces logos or readable text",
+      "source_sha256": "7469943d6e14f46e1a4cf370293048814c4f52eddcc6bd2e27fb2e3b1f1b4296",
+      "webp_sha256": "ae550c7550b7406b72a7fc23c0ddaa6e6cc72f4eb356e2e03658ea16a7ab5a16",
+      "recorded": "2026-11-07",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
