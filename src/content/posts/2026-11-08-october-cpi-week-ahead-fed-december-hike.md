@@ -1,7 +1,7 @@
 ---
 title: October CPI and tech earnings test markets after Nasdaq correction
 date: '2026-11-08'
-updatedAt: '2026-11-08'
+updatedAt: '2026-11-11T19:15:00.000Z'
 category: Markets
 summary: The October consumer price index lands on Tuesday after the Nasdaq entered
   a correction, with futures pricing a roughly 80% chance of a December Fed rate hike
@@ -54,3 +54,5 @@ A hot CPI reading could add to those tightening expectations. Those probabilitie
 ## Earnings to watch
 
 CoreWeave, the cloud company at the centre of concerns about financing the AI buildout, is the report most likely to move the tech trade, according to strategists quoted by Reuters. Its shares have been pummelled in recent weeks. This is news coverage, not investment advice.
+
+The October CPI figures have since been published: the [index rose 0.4% as core inflation held at 0.3% for a third month](/articles/2026-11-11-october-cpi-0-4-percent-core-holds-0-3/). In later remarks, [Governor Bowman said bringing inflation down remains a priority ahead of the December meeting](/articles/2026-11-11-bowman-cfr-inflation-priority-december/).
