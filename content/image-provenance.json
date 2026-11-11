@@ -1508,6 +1508,39 @@
       "webp_sha256": "017222b0b6c52908c18fc62b5a0426177fdd938737c9b48370384e48a7819981",
       "recorded": "2026-11-11",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "bowman-cfr-inflation-priority-december-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Boardroom table with executives hands and documents, no faces, no faces logos or readable text",
+      "source_sha256": "9c9ccb7d5a240618310ed9d576aec36dce62c4798f6b7d437a6884e534f41a76",
+      "webp_sha256": "8783f83068e8f7a5cdd08c9f10b14831e74f3fbea218e9d68007e6d5c4b7eb93",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "bowman-cfr-inflation-priority-december-1": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Boardroom table with executives hands and documents, no faces, no faces logos or readable text",
+      "source_sha256": "9c9ccb7d5a240618310ed9d576aec36dce62c4798f6b7d437a6884e534f41a76",
+      "webp_sha256": "12b0f0382afd90894b2adfaa116335393c5bea6e6bae91327f267fe409033e35",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "bowman-cfr-inflation-priority-december-2": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Boardroom table with executives hands and documents, no faces, no faces logos or readable text",
+      "source_sha256": "9c9ccb7d5a240618310ed9d576aec36dce62c4798f6b7d437a6884e534f41a76",
+      "webp_sha256": "bb206ff8c32f9202e30ef34f44f1d24253bb3d7c6fec39fb85b575da8bf11d4d",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
