@@ -1541,6 +1541,39 @@
       "webp_sha256": "bb206ff8c32f9202e30ef34f44f1d24253bb3d7c6fec39fb85b575da8bf11d4d",
       "recorded": "2026-11-11",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "treasury-bessent-us-china-gala-remarks-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Container ship beside gantry cranes at a port at sunrise, no logos or faces, no faces logos or readable text",
+      "source_sha256": "e1fe80530915ac922da0a3ff49203f98177f3cb02b4e0f9bf374e44c28c0ba73",
+      "webp_sha256": "571e61019916b33c7162ff5192008ede1b808e5a79f62012f384f6cc2a7a47a6",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "treasury-bessent-us-china-gala-remarks-1": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Container ship beside gantry cranes at a port at sunrise, no logos or faces, no faces logos or readable text",
+      "source_sha256": "e1fe80530915ac922da0a3ff49203f98177f3cb02b4e0f9bf374e44c28c0ba73",
+      "webp_sha256": "6e4bea91205fefbb11844cf230cca718e4148d1e5b848b85841d2b48ad9458cd",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "treasury-bessent-us-china-gala-remarks-2": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Container ship beside gantry cranes at a port at sunrise, no logos or faces, no faces logos or readable text",
+      "source_sha256": "e1fe80530915ac922da0a3ff49203f98177f3cb02b4e0f9bf374e44c28c0ba73",
+      "webp_sha256": "732fd852f3038076d24ba4f2ef6f309b4b6d63fe6427f52d4db0fa89cc8187b3",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
