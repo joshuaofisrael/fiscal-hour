@@ -1376,6 +1376,72 @@
       "webp_sha256": "47fd41c2c4711d8e2cb7c3799ad34314dfb0f3ec89d402369eaef452fa2d2f30",
       "recorded": "2026-11-10",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "municipal-bonds-basics-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Highway interchange in the rain, the kind of infrastructure municipal bonds often finance, no faces logos or readable text",
+      "source_sha256": "89e3e1c95df15a65791a2f1ba2df95ee4ab008503f344535f14901be894e26e8",
+      "webp_sha256": "c0300311cf070a5842918983508448f77101afdfa00189c12d88ee4e59e2591f",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "municipal-bonds-basics-1": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Highway interchange in the rain, the kind of infrastructure municipal bonds often finance, no faces logos or readable text",
+      "source_sha256": "89e3e1c95df15a65791a2f1ba2df95ee4ab008503f344535f14901be894e26e8",
+      "webp_sha256": "298ee8c3868d8258e48f66e6f8ad6688ad5a7931661c8cb36d01196701c0e54f",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "municipal-bonds-basics-2": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Highway interchange in the rain, the kind of infrastructure municipal bonds often finance, no faces logos or readable text",
+      "source_sha256": "89e3e1c95df15a65791a2f1ba2df95ee4ab008503f344535f14901be894e26e8",
+      "webp_sha256": "e34116b6c07653def923989b563fee1bb834fe2dcbdee8e1579802ee9bfce4d0",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "cpi-vs-pce-inflation-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Supermarket aisle with shelves of packaged groceries, no faces logos or readable text",
+      "source_sha256": "b1452d7fdcac57e83acb6e1a5a4b676642412af9cfcfd01985f3152516b235e7",
+      "webp_sha256": "3267a4b39bd341707d40f7f1d414ba7291b3783f74de9ad4bebe658d41ab9da7",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "cpi-vs-pce-inflation-1": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Supermarket aisle with shelves of packaged groceries, no faces logos or readable text",
+      "source_sha256": "b1452d7fdcac57e83acb6e1a5a4b676642412af9cfcfd01985f3152516b235e7",
+      "webp_sha256": "53383e0aed2386b28b92f229341d2790b7dfbd735ad6487ce4b6e0515c58f753",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "cpi-vs-pce-inflation-2": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Supermarket aisle with shelves of packaged groceries, no faces logos or readable text",
+      "source_sha256": "b1452d7fdcac57e83acb6e1a5a4b676642412af9cfcfd01985f3152516b235e7",
+      "webp_sha256": "c2a4861b263b3a1953b90f981a8387d1f1bbb9e6a56c921748d61b260d0a1501",
+      "recorded": "2026-11-11",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
