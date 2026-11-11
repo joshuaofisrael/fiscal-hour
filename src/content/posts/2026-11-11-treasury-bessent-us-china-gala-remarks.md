@@ -1,6 +1,5 @@
 ---
-title: Treasury's Bessent says U.S. and China should de-risk, not decouple, and start
-  an SI dialogue
+title: Treasury Secretary Bessent says the US and China should de-risk, not decouple, and start an SI dialogue
 date: '2026-11-11T18:40:00.000Z'
 updatedAt: '2026-11-11T18:40:00.000Z'
 category: Economy
