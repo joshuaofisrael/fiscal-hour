@@ -45,7 +45,7 @@ layout: layouts/base.njk
   <div class="prose">
     {{ content | insertBodyImages(images | keptImages) | safe }}
   </div>
-  <p class="more-in">More in <a href="{{ ('/category/' ~ (category | categorySlug) ~ '/') | url }}">{{ category }}</a>.</p>
+  <p class="more-in">More in <a href="{{ ('/category/' ~ (category | categorySlug) ~ '/') | url }}">{{ category }}</a>{% for hub in topicHubs %}{% if topics and (hub.slug in topics) %} and <a href="{{ ('/topics/' ~ hub.slug ~ '/') | url }}">{{ hub.name }}</a>{% endif %}{% endfor %}.</p>
   {% set related = collections.publishedPosts | relatedPosts({ url: page.url, category: category, tags: tags, topics: topics }) %}
   {% if related and related.length %}
   <section class="related" aria-labelledby="related-heading">
