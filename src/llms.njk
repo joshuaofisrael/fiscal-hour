@@ -14,6 +14,10 @@ Search and AI crawlers may read this site. Published articles list named sources
 ## Pages
 
 - [Home]({{ "/" | absoluteUrl }}): Latest stories
+- [Topics]({{ "/topics/" | absoluteUrl }}): Hubs for markets, Fed and rates, earnings, crypto, and personal finance
+{% for topic in topics %}
+- [{{ topic.name | safe }}]({{ ("/topics/" ~ topic.slug ~ "/") | absoluteUrl }}): {{ topic.intro | safe }}
+{% endfor %}
 {% for item in site.categories %}
 - [{{ item.name | safe }}]({{ ("/category/" ~ item.slug ~ "/") | absoluteUrl }}): {{ item.description | safe }}
 {% endfor %}
