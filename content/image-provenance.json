@@ -1739,6 +1739,39 @@
       "webp_sha256": "56d255f7b647146afc339c8499df56183be97256c7a9978ec3c3bc4af2083f69",
       "recorded": "2026-11-12",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "weekly-jobless-claims-november-7-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Commuters seen from behind in a train station concourse at rush hour, no logos or text",
+      "source_sha256": "f67a45d6800a696165298b68e6c2bb7f312080725334028fe7ee7fb025f5eec8",
+      "webp_sha256": "0d3b4d0246102d223c0f1f004aea66f1526ba2ab42c259686a9550daf64a61d1",
+      "recorded": "2026-11-12",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "weekly-jobless-claims-november-7-1": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Commuters seen from behind in a train station concourse at rush hour, no logos or text",
+      "source_sha256": "f67a45d6800a696165298b68e6c2bb7f312080725334028fe7ee7fb025f5eec8",
+      "webp_sha256": "60f69944496836edd29b203fb72c92a57dd9d52fbbabe4ec9f2cfa31dfbe0e37",
+      "recorded": "2026-11-12",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "weekly-jobless-claims-november-7-2": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Commuters seen from behind in a train station concourse at rush hour, no logos or text",
+      "source_sha256": "f67a45d6800a696165298b68e6c2bb7f312080725334028fe7ee7fb025f5eec8",
+      "webp_sha256": "19c9d5cb84b595767e6e60ecbd77e8baa49e60567c2bf6bfd56460a747f9df2f",
+      "recorded": "2026-11-12",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
