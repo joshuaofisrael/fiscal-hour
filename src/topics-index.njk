@@ -1,0 +1,26 @@
+---
+layout: layouts/page.njk
+title: Topics
+seoTitle: "Topic hubs · FiscalHour"
+seoDescription: "Browse FiscalHour by topic: markets, Fed and rates, earnings, crypto, and personal finance. Each hub lists sourced stories. News only, never investment advice."
+kicker: Topics
+summary: Browse FiscalHour by topic. Each hub lists matching stories, newest first. News and context, never investment advice.
+permalink: /topics/
+updatedAt: 2026-11-12
+---
+<p>These pages group our reporting by theme. Every figure and claim is sourced on the story itself. This is news and context, not investment advice, and it does not recommend buying or selling.</p>
+<ul class="story-list">
+{% for topic in topics %}
+  {% set stories = [] %}
+  {% for post in collections.publishedPosts %}{% if topic.slug in (post.data.topics or []) %}{% set stories = (stories.push(post), stories) %}{% endif %}{% endfor %}
+  <li>
+    <article class="story">
+      <div class="story-copy">
+        <p class="kicker">{{ stories.length }} {{ "story" if stories.length == 1 else "stories" }}</p>
+        <h2 class="story-title"><a href="{{ ('/topics/' ~ topic.slug ~ '/') | url }}">{{ topic.name }}</a></h2>
+        <p class="deck">{{ topic.intro }}</p>
+      </div>
+    </article>
+  </li>
+{% endfor %}
+</ul>
