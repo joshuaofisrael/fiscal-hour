@@ -1772,6 +1772,72 @@
       "webp_sha256": "19c9d5cb84b595767e6e60ecbd77e8baa49e60567c2bf6bfd56460a747f9df2f",
       "recorded": "2026-11-12",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "cerebras-q3-2026-results-microsoft-deal-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Trading desk monitors showing red and green candlestick charts, no logos or readable text",
+      "source_sha256": "12bcc042e1e9f272994a35a85d5ccc07a0300692210f09587c029423858ffb1a",
+      "webp_sha256": "5ae3eb7b675dff5e3a4827ac9f996d8e3c23d7c55a1aa9ba89fcb88a22282447",
+      "recorded": "2026-11-13",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "cerebras-q3-2026-results-microsoft-deal-1": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Trading desk monitors showing red and green candlestick charts, no logos or readable text",
+      "source_sha256": "12bcc042e1e9f272994a35a85d5ccc07a0300692210f09587c029423858ffb1a",
+      "webp_sha256": "45091155b2fcfac2e102680ade390a53d040d739d7e4ab6b1b9a0635a7a16dc1",
+      "recorded": "2026-11-13",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "cerebras-q3-2026-results-microsoft-deal-2": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Trading desk monitors showing red and green candlestick charts, no logos or readable text",
+      "source_sha256": "12bcc042e1e9f272994a35a85d5ccc07a0300692210f09587c029423858ffb1a",
+      "webp_sha256": "b19ee860c7f4c439137f8352049c10f10054871b1fc1b8c3fd719f23351576ba",
+      "recorded": "2026-11-13",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "fed-2027-payment-fees-and-fomc-meeting-schedule-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Empty modern bank branch lobby with teller counters, no people, logos or readable text",
+      "source_sha256": "80594df6f46ccc0b4726221777202cc55bbc8b5439251a82babbc26104d414ef",
+      "webp_sha256": "0936d2820223c25bd1acc6a551058281a17cc687580e8e5b1fa2660c3ef49d2e",
+      "recorded": "2026-11-13",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "fed-2027-payment-fees-and-fomc-meeting-schedule-1": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Empty modern bank branch lobby with teller counters, no people, logos or readable text",
+      "source_sha256": "80594df6f46ccc0b4726221777202cc55bbc8b5439251a82babbc26104d414ef",
+      "webp_sha256": "7cc8cdb899e90458b63e872b66d88f0f18f3b0a6ff67b6c86455ec186e8748c8",
+      "recorded": "2026-11-13",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "fed-2027-payment-fees-and-fomc-meeting-schedule-2": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Grok Bot image bank",
+      "prompt": "Photorealistic photo: Empty modern bank branch lobby with teller counters, no people, logos or readable text",
+      "source_sha256": "80594df6f46ccc0b4726221777202cc55bbc8b5439251a82babbc26104d414ef",
+      "webp_sha256": "b620691bf86dc31d8a6d99e9a6065b6b51ddae592661734d0ea2cbc54e50a682",
+      "recorded": "2026-11-13",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }
