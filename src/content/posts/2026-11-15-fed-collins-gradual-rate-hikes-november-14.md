@@ -1,6 +1,6 @@
 ---
-title: Fed's Collins backs a steady, gradual path of rate rises and says rates may
-  end up higher than she thought
+title: Boston Fed President Collins backs a steady, gradual path of rate rises and
+  says rates may end up higher than she thought
 date: '2026-11-15T13:40:00.000Z'
 updatedAt: '2026-11-15T13:40:00.000Z'
 category: Economy

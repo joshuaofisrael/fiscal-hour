@@ -1,6 +1,6 @@
 ---
-title: 'Week ahead: retail sales, Nvidia earnings, Fed minutes and Anthropic''s first
-  trading day'
+title: 'Week ahead: retail sales, Nvidia earnings, Fed minutes and the Anthropic IPO
+  debut'
 date: '2026-11-15T14:00:00.000Z'
 updatedAt: '2026-11-15T14:00:00.000Z'
 category: Markets
