@@ -1,8 +1,8 @@
 ---
 title: Anthropic prices its IPO at $83, above the $70 to $78 range, and sells 155
   million more shares
-date: '2026-11-19T14:30:00Z'
-updatedAt: '2026-11-19T14:30:00Z'
+date: '2026-11-19T14:15:00Z'
+updatedAt: '2026-11-19T14:15:00Z'
 category: Markets
 summary: The offering grew to 980 million shares, about $81.3 billion at the offer
   price by our arithmetic. Class A shares are due to start trading on Nasdaq under
