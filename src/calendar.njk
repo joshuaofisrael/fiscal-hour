@@ -1,0 +1,123 @@
+---
+layout: layouts/page.njk
+permalink: /calendar/
+title: "When is the next CPI report, jobs report, PCE, GDP and Fed meeting?"
+seoTitle: "When Is the Next CPI, Jobs Report, PCE, GDP and Fed Meeting?"
+seoDescription: "Next CPI, jobs, PCE, GDP, FOMC and Freddie Mac dates, copied from the BLS, BEA, Fed and Freddie Mac schedules."
+description: "Official release dates for CPI, the jobs report, PCE, GDP, the next FOMC meeting and Freddie Mac’s mortgage survey, with the agency, time and source."
+date: 2026-11-20
+updatedAt: 2026-11-20
+kind: calendar
+kicker: "Release calendar"
+---
+<p class="byline">By <a href="{{ '/about/' | url }}">FiscalHour</a></p>
+<p class="last-updated">Dates checked <time datetime="2026-11-20">November 20, 2026</time>. This page lists schedules. It is not a forecast, and it is not investment advice. <a href="{{ '/disclaimer/' | url }}">Read the disclaimer</a>.</p>
+
+<p>Four releases sit on top of the week ahead, using only the dates those agencies had posted on 20 November 2026. On Wednesday 25 November the <a href="https://www.bea.gov/news/schedule/full">Bureau of Economic Analysis schedule</a> lists two 8:30 a.m. reports: the second estimate of third-quarter GDP, and personal income and outlays for October, which is the release that carries the PCE price index. The same morning is not a Freddie Mac Thursday. <a href="https://www.freddiemac.com/pmms/docs/PMMS_Publication_Calendar.pdf">Freddie Mac’s publication calendar</a> puts the next Primary Mortgage Market Survey on Wednesday 25 November, and the <a href="https://www.freddiemac.com/pmms">PMMS page</a> says the survey comes out at 12 p.m. ET, moving to Wednesday when a U.S. holiday falls on Thursday.</p>
+
+<p>The next jobs report is the November Employment Situation. The <a href="https://www.bls.gov/schedule/news_release/empsit.htm">BLS schedule</a> lists it for Friday 4 December at 8:30 a.m. The next CPI, also for November, is on the <a href="https://www.bls.gov/schedule/news_release/cpi.htm">CPI schedule</a> for Thursday 10 December at 8:30 a.m. The October CPI, already out, is the one <a href="{{ '/articles/2026-11-11-october-cpi-0-4-percent-core-holds-0-3/' | url }}">FiscalHour reported at 0.4%</a>.</p>
+
+<p>The <a href="https://www.federalreserve.gov/newsevents/2026-december.htm">Board’s December calendar</a> lists a two-day FOMC meeting on 8-9 December, a 2:00 p.m. entry on the 9th, and a 2:30 p.m. press conference the same day. Minutes of that meeting are listed for 2:00 p.m. on 30 December. The <a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm">FOMC calendar</a> marks the December meeting with the asterisk it uses for a Summary of Economic Projections. That asterisk is a label on the calendar, not a preview of the vote. The October meeting’s minutes, released 18 November, are covered in the <a href="{{ '/articles/2026-11-19-fomc-minutes-october-2026-rate-hike-ai-debt-financial-stability/' | url }}">minutes story</a>.</p>
+
+<h2>Next on each calendar</h2>
+<p>These are the first dates still ahead for each series. “Released” rows farther down are the latest print already on the agency page, so the gap between the last report and the next one is visible.</p>
+<div class="table-wrap">
+  <table class="schedule">
+    <caption class="visually-hidden">Next official release for each series, checked 20 November 2026</caption>
+    <thead>
+      <tr>
+        <th scope="col">Series</th>
+        <th scope="col">What</th>
+        <th scope="col">Reference</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Source</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in releaseCalendar.rows %}
+      {% if row.next %}
+      <tr>
+        <th scope="row">{{ row.series }}</th>
+        <td>{{ row.event }}</td>
+        <td>{{ row.reference_period }}</td>
+        <td><time datetime="{{ row.release_date }}">{{ row.release_date }}</time></td>
+        <td>{{ row.release_time or "Not printed" }}</td>
+        <td><a href="{{ row.source_url }}">{{ row.agency }}</a></td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<p>BLS and BEA print “8:30 AM” on their schedules and do not label a time zone in those tables. The Federal Reserve’s December calendar prints 2:00 p.m. and 2:30 p.m. and does not label a zone either. Freddie Mac is the exception: its PMMS page says 12 p.m. ET. If a page and this table ever disagree, use the agency page. Schedules move, and this one does not update itself.</p>
+
+{{ releaseCalendar.midReads | nextReadsHtml("Background", "background-heading") | safe }}
+
+<h2>The full copied schedule</h2>
+<p>Every date below was taken from the linked page on 20 November 2026. The table does not add dates for 2027 GDP or PCE, because the BEA schedule page stops at 23 December 2026. The BLS pages do list CPI and jobs releases through late 2027, so those rows are included. FOMC dates for 2027 are the Fed’s own list, and the Fed says each one is tentative until the prior meeting confirms it. October 26-27, 2027, is copied with the words the calendar prints beside it, “Monetary Policy Strategy Meeting.” That entry is not described there as a rate decision.</p>
+
+{% for series in releaseCalendar.seriesOrder %}
+<h3>{{ series }}</h3>
+<div class="table-wrap">
+  <table class="schedule">
+    <caption class="visually-hidden">{{ series }} release dates</caption>
+    <thead>
+      <tr>
+        <th scope="col">Reference</th>
+        <th scope="col">Release</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Status</th>
+        <th scope="col">Source</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in releaseCalendar.rows %}
+      {% if row.series == series %}
+      <tr>
+        <th scope="row">{{ row.reference_period }}</th>
+        <td>{{ row.event }}</td>
+        <td><time datetime="{{ row.release_date }}">{{ row.release_date }}</time></td>
+        <td>{{ row.release_time or "Not printed" }}</td>
+        <td>{{ row.status }}</td>
+        <td><a href="{{ row.source_url }}">{{ row.source_title }}</a></td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endfor %}
+
+<p>The December FOMC meeting is the one with a clock time in this table, because the Board’s month calendar prints one. The year-page <a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm">FOMC calendar</a> confirms the dates and the projections asterisk, and it says the page was last updated 18 November 2026. The December month page says it was last updated 24 June 2025, so the clock times are older than the year-page date list. Both are linked on purpose.</p>
+
+<h2>How the mortgage week is counted</h2>
+<p>Freddie Mac’s <a href="https://www.freddiemac.com/pmms">PMMS page</a> says the published average is not a quote from a single day. Applications count from 12:00 a.m. ET on the prior Thursday through 11:59 p.m. ET on Wednesday, and the average is released at noon ET. The 19 November survey, the latest one on the archive when this page was checked, is written up with the weekly path since early October in the <a href="{{ '/articles/2026-10-30-freddie-mac-mortgage-rates/' | url }}">mortgage-rate story</a>. A survey average is not the rate a particular borrower will be offered.</p>
+
+<aside class="check-another">
+  <h2>Check another release</h2>
+  <ul>
+    <li><a href="{{ '/articles/2026-11-11-cpi-vs-pce-inflation/' | url }}">CPI against PCE</a>, and which one the Fed targets.</li>
+    <li><a href="{{ '/articles/2026-10-30-gdp-advance-third-quarter/' | url }}">The third-quarter GDP advance estimate</a>, the print the 25 November release revises.</li>
+    <li><a href="{{ '/articles/2026-10-30-personal-income-pce-september/' | url }}">September personal income and the PCE price index</a>.</li>
+    <li><a href="{{ '/articles/2026-10-29-fed-holds-funds-rate/' | url }}">The October decision</a>, which left the funds rate at 3.75% to 4%.</li>
+    <li><a href="{{ '/topics/fed-rates/' | url }}">Fed and rates</a> and <a href="{{ '/category/economy/' | url }}">Economy</a> for the stories that follow these releases.</li>
+  </ul>
+</aside>
+
+<h2>Cite this</h2>
+<aside class="cite-this">
+  <p>FiscalHour, “Economic release calendar,” <a href="https://fiscalhour.com/calendar/">https://fiscalhour.com/calendar/</a>, dates checked 20 November 2026. The dates are copied from the BLS, BEA, Federal Reserve and Freddie Mac pages linked in the table. If you rely on a date, cite that agency page. This table is a copy, and a publisher can change a date after we last checked.</p>
+  <p><a href="{{ '/calendar/releases.csv' | url }}">Download the same rows as a CSV</a> (series, agency, reference period, date, time, status, source). The file is the table on this page, not a separate dataset.</p>
+</aside>
+
+<h2>Questions the dates do not answer</h2>
+{% for item in faq %}
+<h3>{{ item.question }}</h3>
+<p>{{ item.answer }}</p>
+{% endfor %}
+
+<p>More of the reporting sits in <a href="{{ '/topics/fed-rates/' | url }}">Fed &amp; Rates</a>, <a href="{{ '/topics/personal-finance/' | url }}">Personal Finance</a> and the <a href="{{ '/category/economy/' | url }}">Economy</a> desk. The sourcing standard is on <a href="{{ '/sources-ethics/' | url }}">Sources &amp; Ethics</a>.</p>
+
+{{ releaseCalendar.endReads | nextReadsHtml("Related stories", "related-heading") | safe }}

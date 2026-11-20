@@ -2,7 +2,8 @@
 title: Gold is down about 8% in a week and just touched its lowest price in more than
   a year
 date: '2026-11-20T13:35:00.000Z'
-updatedAt: '2026-11-20T13:35:00.000Z'
+updatedAt: '2026-11-20T16:30:00.000Z'
+sitemapLastmod: '2026-11-20T16:30:00.000Z'
 category: Markets
 summary: Spot gold fell for a fifth session on Friday and touched $3,513.54, its lowest
   since September 2025, putting it on track for its worst week in eight months, according
@@ -65,10 +66,10 @@ Quotes from [Kitco](https://www.kitco.com/charts/gold) earlier on Friday told th
 
 Gold pays no interest. When markets expect higher rates, holding bonds or cash becomes more attractive by comparison, and a stronger dollar makes gold dearer for buyers using other currencies. The post says Philadelphia Fed President Anna Paulson "reinforced expectations of further monetary tightening."
 
-She is not alone. On Thursday Fed Vice Chair Philip Jefferson said in a [speech in Brasília](https://www.federalreserve.gov/newsevents/speech/jefferson20261119a.htm) that "the AI buildout is exerting upward pressure on demand and inflation." The minutes of the October meeting also showed officials discussing a hike, as we reported in our [FOMC minutes story](/articles/2026-11-19-fomc-minutes-october-2026-rate-hike-ai-debt-financial-stability/).
+She is not alone. On Thursday Fed Vice Chair Philip Jefferson said in a [speech in Brasília](https://www.federalreserve.gov/newsevents/speech/jefferson20261119a.htm) that "the AI buildout is exerting upward pressure on demand and inflation." Chicago Fed President Austan Goolsbee spoke the same day. Both sets of remarks are in the [Jefferson and Goolsbee story](/articles/2026-11-20-fed-jefferson-goolsbee-ai-boom-pushing-inflation-not-on-path-to-2-percent/). The minutes of the October meeting also showed officials discussing a hike, as we reported in our [FOMC minutes story](/articles/2026-11-19-fomc-minutes-october-2026-rate-hike-ai-debt-financial-stability/).
 
 ## What to watch
 
-The next Fed decision is in December, and every inflation reading before then will feed into rate expectations. For gold, the question is whether $3,500 holds. Friday's close will settle how bad the week was.
+The Board’s December calendar lists the next FOMC meeting for 8-9 December. That date, and the CPI and PCE releases that fall before it, are copied onto the [economic calendar](/calendar/) from the agency pages, not from market odds. The last CPI print is the [October report](/articles/2026-11-11-october-cpi-0-4-percent-core-holds-0-3/). Friday's close will settle how bad this week in gold was. The morning prices above are not a forecast of that close.
 
 Prices in this article are from Friday morning ET and change constantly.
