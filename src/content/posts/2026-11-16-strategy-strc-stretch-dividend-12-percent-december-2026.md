@@ -2,7 +2,8 @@
 title: Strategy keeps its STRC Stretch preferred dividend at 12% for December, Saylor
   says
 date: '2026-11-16T14:00:00.000Z'
-updatedAt: '2026-11-16T14:00:00.000Z'
+updatedAt: '2026-11-20T16:30:00.000Z'
+sitemapLastmod: '2026-11-20T16:30:00.000Z'
 category: Crypto
 summary: Executive chairman Michael Saylor posted that the variable rate on Strategy's
   Stretch preferred stock stays at 12.00% for December 2026. The company's STRC page
@@ -63,8 +64,8 @@ The page also shows Strategy holding 850,364 bitcoin, which it says is 4.05% of 
 
 ## Background
 
-Strategy's [press archive](https://www.strategy.com/press) shows it approved semi-monthly STRC dividends in June, set out an STRC dividend policy and buyback authorisations at the end of June, and began repurchasing STRC in July. In October it reported buying back $192 million of STRC. We found no separate press release for the December rate when we published.
+Strategy's [press archive](https://www.strategy.com/press) shows it approved semi-monthly STRC dividends in June, set out an STRC dividend policy and repurchase authorisations at the end of June, and began repurchasing STRC in July. In October it reported buying back $192 million of STRC. We found no separate press release for the December rate when we published. MSCI’s later decision to drop Strategy from indexes is a separate corporate event, reported in the [MSCI story](/articles/2026-11-12-msci-removes-strategy-from-indexes/).
 
-## Why it matters
+## What happened next
 
-A steady rate suggests Strategy sees no need to raise the payout to support the price, which sat just under $100 at Friday's close. A 12% dividend is a large fixed-income-style commitment, and holders should note that the rate can change each month and that the security's value is tied to a company whose main asset is bitcoin. This article is for information only and is not investment advice.
+The company’s STRC page, as cited above, said Strategy held 850,364 bitcoin. On 20 November bitcoin touched $61,225, a four-and-a-half-month low, according to the LSEG figure in the [bitcoin story](/articles/2026-11-20-bitcoin-falls-61225-lowest-since-july-ibit-record-outflow/) published that morning. That price is a market result. It is not a judgment on the preferred share, and the December dividend rate in Saylor’s post is one month’s setting on a security the company itself labels variable. This article is for information only and is not investment advice.

@@ -9,6 +9,7 @@ import { metaDescription } from "./lib/meta-description.js";
 import { formatValidationErrors, validatePostsDir } from "./lib/validate-posts.js";
 import { enforceLegalGate, hasImageRecord, isHeldPost, keepImage, keepImages } from "./lib/legal-gate.js";
 import { relatedPosts, relatedStories } from "./lib/related.js";
+import { asReads, insertReadNext, renderNextReads } from "./lib/next-reads.js";
 import { adsenseEnabled, adsensePublisherId } from "./lib/ads.js";
 import { isSitemapEntry } from "./lib/listing-index.js";
 
@@ -98,7 +99,17 @@ export default function (eleventyConfig) {
     return `${cut.slice(0, cut.lastIndexOf(" ")).replace(/[\s,:;–—-]+$/, "")}…`;
   });
   eleventyConfig.addFilter("metaDescription", (summary) => metaDescription(summary, site.description));
-  eleventyConfig.addFilter("relatedPosts", (posts, current) => relatedStories(posts, current, 5));
+  eleventyConfig.addFilter("relatedPosts", (posts, current) => relatedStories(posts, current, 8));
+  eleventyConfig.addFilter("asReads", (posts) => asReads(posts));
+  eleventyConfig.addFilter("slice", (items, start, end) => {
+    const list = Array.isArray(items) ? items : [];
+    const from = Number(start) || 0;
+    return end === undefined || end === null ? list.slice(from) : list.slice(from, Number(end));
+  });
+  eleventyConfig.addFilter("nextReadsHtml", (reads, heading, id) =>
+    renderNextReads(reads, pathPrefix, { heading, id }),
+  );
+  eleventyConfig.addFilter("insertReadNext", (html, reads) => insertReadNext(html, reads, pathPrefix));
   eleventyConfig.addFilter("sitemapEntry", (item) => isSitemapEntry(item));
   eleventyConfig.addFilter("keptImage", (image) => keepImage(image));
   eleventyConfig.addFilter("keptImages", (images) => keepImages(images));

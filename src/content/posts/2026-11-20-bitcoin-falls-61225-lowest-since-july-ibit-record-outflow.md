@@ -2,7 +2,8 @@
 title: Bitcoin just hit $61,225, its lowest since July, as the biggest bitcoin ETF
   saw a record day of withdrawals
 date: '2026-11-20T13:20:00.000Z'
-updatedAt: '2026-11-20T13:20:00.000Z'
+updatedAt: '2026-11-20T16:30:00.000Z'
+sitemapLastmod: '2026-11-20T16:30:00.000Z'
 category: Crypto
 summary: Bitcoin fell to a four-and-a-half-month low of $61,225 on Friday, according
   to LSEG data cited by Walter Bloomberg. CoinDesk says BlackRock's IBIT had a record
@@ -56,7 +57,7 @@ Bitcoin's slide found a new floor on Friday morning. "Bitcoin falls to 4.5-month
 
 ## Three down days and record ETF selling
 
-[CoinDesk](https://www.coindesk.com/markets/2026/11/20/bitcoin-drops-for-third-straight-day-as-asian-tech-shares-slide) describes it as bitcoin's third straight daily loss, with the price touching about $61,200 before bouncing back above $61,700. Much of the selling has shown up in exchange-traded funds. CoinDesk says BlackRock's iShares Bitcoin Trust (IBIT) recorded a record $541.1 million outflow on Thursday.
+[CoinDesk](https://www.coindesk.com/markets/2026/11/20/bitcoin-drops-for-third-straight-day-as-asian-tech-shares-slide) describes it as bitcoin's third straight daily loss, with the price touching about $61,200 before bouncing back above $61,700. Two weeks earlier the same market was being described at about $76,000 after an earlier wave of liquidations, in the [6 November bitcoin story](/articles/2026-11-06-bitcoin-steadies-near-76000-after-liquidations/). Much of the selling this week has shown up in exchange-traded funds. CoinDesk says BlackRock's iShares Bitcoin Trust (IBIT) recorded a record $541.1 million outflow on Thursday.
 
 Leverage made it worse. CoinDesk puts liquidations of crypto derivatives positions at $718.6 million over 24 hours, as falling prices forced out traders who had borrowed to bet on a rise.
 
