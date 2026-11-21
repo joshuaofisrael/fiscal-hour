@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { adsenseEnabled, adsensePublisherId } from "../lib/ads.js";
-import { relatedPosts } from "../lib/related.js";
+import { coveragePlan, relatedPosts } from "../lib/related.js";
 
 test("AdSense stays off until the publisher id is a real client id", () => {
   assert.equal(adsensePublisherId(""), "");
@@ -24,4 +24,25 @@ test("related stories share a section or a tag and skip the current page", () =>
     related.map((post) => post.url),
     ["/articles/b/", "/articles/c/"],
   );
+});
+
+test("coverage splits earlier and later stories that share a tag", () => {
+  const posts = [
+    { url: "/articles/old/", date: "2026-11-01", data: { title: "Old rate note", category: "Economy", tags: ["rates"], hero: { src: "a" } } },
+    { url: "/articles/mid/", date: "2026-11-10", data: { title: "Middle", category: "Economy", tags: ["rates"] } },
+    { url: "/articles/next/", date: "2026-11-20", data: { title: "Later rate note", category: "Markets", tags: ["rates"], hero: { src: "b" } } },
+    { url: "/articles/other/", date: "2026-11-21", data: { title: "Unrelated", category: "Economy", tags: ["oil"] } },
+  ];
+  const plan = coveragePlan(posts, {
+    url: "/articles/mid/",
+    date: "2026-11-10",
+    category: "Economy",
+    tags: ["rates"],
+    background: ["/articles/old/"],
+  });
+  assert.equal(plan.midHeading, "Background");
+  assert.equal(plan.mid[0].url, "/articles/old/");
+  assert.equal(plan.followUp[0].url, "/articles/next/");
+  assert.equal(plan.followUp.some((post) => post.url === "/articles/other/"), false);
+  assert.equal(plan.end.some((post) => post.url === "/articles/old/"), false);
 });

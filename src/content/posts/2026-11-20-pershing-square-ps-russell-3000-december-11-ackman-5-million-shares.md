@@ -2,7 +2,8 @@
 title: Bill Ackman says index funds will soon have to buy about 5 million Pershing
   Square shares, and he named the date
 date: '2026-11-20T14:00:00.000Z'
-updatedAt: '2026-11-20T14:00:00.000Z'
+updatedAt: '2026-11-21'
+sitemapLastmod: 2026-11-21
 category: Markets
 summary: Pershing Square Inc. (PS) is on FTSE Russell's list of additions to the Russell
   3000, effective after the close on 11 December. Bill Ackman estimates passive funds
@@ -16,6 +17,8 @@ tags:
 - russell-3000
 - index-funds
 - ftse-russell
+background:
+- /articles/2026-11-12-msci-removes-strategy-from-indexes/
 author: FiscalHour
 hero:
   src: pershing-square-ps-russell-3000-december-11-ackman-5-million-shares-hero
@@ -61,12 +64,10 @@ Pershing Square, ticker PS, appears on FTSE Russell's [preliminary list of Russe
 
 The 5 million share figure is Ackman's own estimate. FTSE Russell does not publish how many shares index funds will need to buy.
 
-## Why index inclusion moves stocks
+## What an index change has already required
 
-Funds that track an index have to own its members in proportion to their weight, whatever the price. When a company joins, those funds must buy it, usually at or near the close on the effective day. Traders often try to get in ahead of that demand, which can lift the price in the weeks before. Ackman's point about "closet index trackers" is that active funds which closely follow a benchmark may buy too.
+An index change can mean sales as well as purchases. When MSCI removed Strategy from its indexes this month, funds that track those indexes had to sell the shares. That is the point of the [MSCI story](/articles/2026-11-12-msci-removes-strategy-from-indexes/), and it is the background for Ackman’s claim about the opposite trade in PS. The Strategy episode does not show what PS will do before 11 December. Ackman’s share count remains his estimate.
 
-Index changes can push a stock down as well. When MSCI removed Strategy from its indexes this month, tracking funds had to sell, as covered in our [MSCI story](/articles/2026-11-12-msci-removes-strategy-from-indexes/).
+## What is still open
 
-## What to watch
-
-The 13 November list is preliminary, and FTSE Russell can update it before the effective date. Watch trading volume in PS in the days before 11 December, and especially in the closing auction that day.
+The 13 November list is preliminary, and FTSE Russell’s own notice says the provider can update it before the effective date. The schedule points at the close on 11 December. It does not say what the share price will be that day.

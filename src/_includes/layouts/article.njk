@@ -42,13 +42,17 @@ layout: layouts/base.njk
   </figure>
   {% endif %}
   {% include "partials/story-figure.njk" %}
-  {% set related = collections.publishedPosts | relatedPosts({ url: page.url, category: category, tags: tags, topics: topics }) %}
-  {% set midReads = related | asReads | slice(0, 4) %}
-  {% set endReads = related | asReads | slice(4, 8) %}
+  {% set plan = collections.publishedPosts | coveragePlan({ url: page.url, category: category, tags: tags, topics: topics, date: page.date, publishAt: publishAt, background: background, followUp: followUp }) %}
+  {% set midReads = plan.mid | asReads %}
+  {% set followReads = plan.followUp | asReads %}
+  {% set endReads = plan.end | asReads %}
   <div class="prose">
-    {{ content | insertBodyImages(images | keptImages) | insertReadNext(midReads) | safe }}
+    {{ content | insertBodyImages(images | keptImages) | insertReadNext(midReads, plan.midHeading) | safe }}
   </div>
   <p class="more-in">More in <a href="{{ ('/category/' ~ (category | categorySlug) ~ '/') | url }}">{{ category }}</a>{% for hub in topicHubs %}{% if topics and (hub.slug in topics) %} and <a href="{{ ('/topics/' ~ hub.slug ~ '/') | url }}">{{ hub.name }}</a>{% endif %}{% endfor %}.</p>
+  {% if followReads.length %}
+  {{ followReads | nextReadsHtml("What happened next", "follow-up-heading") | safe }}
+  {% endif %}
   {{ endReads | nextReadsHtml("Related stories", "related-heading") | safe }}
   {% if tags and tags.length %}
   <section class="tag-block" aria-labelledby="tags-heading">

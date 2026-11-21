@@ -2,7 +2,8 @@
 title: Japan economy shrinks in July to September for the first time in four quarters
   as energy costs hit spending
 date: '2026-11-16T13:50:00.000Z'
-updatedAt: '2026-11-16T13:50:00.000Z'
+updatedAt: '2026-11-21'
+sitemapLastmod: 2026-11-21
 category: Economy
 summary: Real GDP fell at an annualised 0.1% against forecasts for growth of about
   0.3%. Consumer spending fell and net exports took 0.6 point off growth, though business
@@ -15,6 +16,9 @@ tags:
 - gdp
 - bank-of-japan
 - consumer-spending
+background:
+- /articles/2026-10-30-boj-holds-call-rate/
+- /articles/2026-10-30-gdp-advance-third-quarter/
 author: FiscalHour
 hero:
   src: japan-gdp-july-september-2026-contracts-hero
@@ -72,4 +76,8 @@ CNBC reports that household energy subsidies expired in September, leaving consu
 
 The data lands weeks before the Bank of Japan's December meeting. CNBC says markets still priced a 75.6% chance of a quarter-point rate rise in December, according to LSEG. State Street Investment Management economist Krishna Bhimavarapu told CNBC the figures were "hardly a green light" for a hike, pointing to a 2.1% annualised fall in real final sales of domestic product. Capital Economics still expects the central bank to tighten.
 
-After the release the Nikkei 225 fell 0.62% and the yen traded around 159.76 per dollar, CNBC reports. This is the first estimate, and the Cabinet Office will revise it next month when more data, including corporate investment surveys, are available.
+After the release the Nikkei 225 fell 0.62% and the yen traded around 159.76 per dollar, CNBC reports. The 16 November story reported this as the first estimate, with a revision expected once corporate investment surveys were in. Checked on 21 November, the figures above are still that first preliminary estimate. A later Cabinet Office file was not the source for this update.
+
+## Background
+
+The contraction sits next to two decisions already reported here. On 30 October the [Bank of Japan kept the overnight call rate](/articles/2026-10-30-boj-holds-call-rate/) around 1.25%, which is the policy setting this GDP print arrived into. The US figure for a similar quarter is the [BEA advance estimate](/articles/2026-10-30-gdp-advance-third-quarter/), a different economy and a different agency. The next US release dates are on the [calendar](/calendar/). CNBC’s December hike probability, cited above, is a market price from 16 November, not a Bank of Japan announcement.
