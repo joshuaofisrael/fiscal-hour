@@ -5,7 +5,8 @@ title: "What a mutual fund or ETF expense ratio measures"
 description: "The SEC's Investor.gov defines the expense ratio as the share of a fund's average net assets used each year to pay operating expenses, shown in the prospectus fee table."
 date: "2026-10-31T11:00:00.000Z"
 publishAt: "2026-10-31T11:00:00.000Z"
-updatedAt: 2026-10-31
+updatedAt: 2026-11-21
+sitemapLastmod: 2026-11-21
 category: Personal Finance
 tags:
   - investing
@@ -30,11 +31,11 @@ sources:
   - title: "Expense Ratio (glossary)"
     url: "https://www.investor.gov/introduction-investing/investing-basics/glossary/expense-ratio"
     publisher: "U.S. Securities and Exchange Commission, Investor.gov"
-    date: 2026-10-29
+    date: 2026-11-21
   - title: "Mutual Fund and ETF Fees and Expenses"
     url: "https://www.investor.gov/introduction-investing/investing-basics/glossary/mutual-fund-fees-and-expenses"
     publisher: "U.S. Securities and Exchange Commission, Investor.gov"
-    date: 2026-10-29
+    date: 2026-11-21
 ---
 
 A fund's expense ratio is the percentage of its average net assets used each year to pay the fund's operating expenses, according to the [expense ratio entry](https://www.investor.gov/introduction-investing/investing-basics/glossary/expense-ratio) on Investor.gov, the investor-education site of the Securities and Exchange Commission. The entry says those expenses can include management fees, distribution or service fees known as 12b-1 fees, acquired fund fees and expenses, and other expenses.
@@ -45,4 +46,16 @@ Both pages point to the same place to find the figures. The glossary says the ex
 
 The fees page says costs vary from fund to fund, and that a fund with high costs must perform better than a low-cost fund to generate the same returns for an investor. It adds that even small differences in fees can translate into large differences in returns over time. As a plain illustration of the arithmetic only, a ratio of 0.50% means expenses equal to half of one percent of average net assets over a year, or $5 for each $1,000 of average assets.
 
-This explainer describes the SEC's published definitions. It does not rate, compare or recommend any fund.
+Checked on 21 November 2026, both Investor.gov pages still use that wording. Neither page names a ratio that counts as high or low, and neither lists funds. The comparison they do make is between two unnamed funds: the one with higher costs has to earn more before the shareholder sees the same return. A 0.50 percent illustration is arithmetic on the definition, not an example taken from a prospectus.
+
+An expense ratio is not the same question as whether a deposit is insured, which is the [FDIC and SIPC comparison](/articles/2026-11-02-fdic-vs-sipc/), or how a savings bond’s rate is set, which is the [I bond calculation](/articles/2026-10-30-how-i-bond-interest-works/). A municipal bond’s tax treatment is a third question, covered in [municipal bond basics](/articles/2026-11-11-municipal-bonds-basics/). The fee table is where a fund’s own number lives. This page does not pick a fund.
+
+<aside class="check-another">
+  <h2>Check another figure</h2>
+  <ul>
+    <li><a href="/articles/2026-11-02-fdic-vs-sipc/">FDIC insurance against SIPC protection</a>.</li>
+    <li><a href="/articles/2026-10-30-how-i-bond-interest-works/">How I bond interest is calculated</a>.</li>
+    <li><a href="/articles/2026-11-11-municipal-bonds-basics/">What a municipal bond’s tax treatment depends on</a>.</li>
+    <li><a href="/topics/personal-finance/">Personal finance</a>, the hub for these explainers.</li>
+  </ul>
+</aside>

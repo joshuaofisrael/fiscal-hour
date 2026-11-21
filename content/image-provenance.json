@@ -2696,6 +2696,39 @@
       "webp_sha256": "8a65e8acb019c2585d908c05a4775eadaf90fdf8be3965182a6a3e18e4649028",
       "recorded": "2026-11-21",
       "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "term-premium-hero": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Image bank central-bank-facade.png, 21 Nov 2026 SEO batch",
+      "prompt": "Photorealistic news photo of a pale stone neoclassical facade with a columned portico under an overcast sky, no people, signs or readable lettering",
+      "source_sha256": "44fa0314032f9dcd3f5c77721d417f5650802321d1508f64e5c6b2c31a3a42de",
+      "webp_sha256": "a944229d063e9ed7f2d5cb4b3a4f0fa337cccc97abb7b37ec5ee3712d7ba0b8e",
+      "recorded": "2026-11-21",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph."
+    },
+    "term-premium-columns": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Image bank central-bank-facade.png, 21 Nov 2026 SEO batch",
+      "prompt": "Photorealistic news photo of a pale stone neoclassical facade with a columned portico under an overcast sky, no people, signs or readable lettering",
+      "source_sha256": "44fa0314032f9dcd3f5c77721d417f5650802321d1508f64e5c6b2c31a3a42de",
+      "webp_sha256": "4d0295ffc3a2f4cdfef5949815e0fd960041c17778a82b56da3aa8894c89d8b0",
+      "recorded": "2026-11-21",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
+    },
+    "term-premium-windows": {
+      "licence": "Original",
+      "creator": "FiscalHour",
+      "kind": "AI-generated photorealistic illustration",
+      "generator": "Image bank central-bank-facade.png, 21 Nov 2026 SEO batch",
+      "prompt": "Photorealistic news photo of a pale stone neoclassical facade with a columned portico under an overcast sky, no people, signs or readable lettering",
+      "source_sha256": "44fa0314032f9dcd3f5c77721d417f5650802321d1508f64e5c6b2c31a3a42de",
+      "webp_sha256": "f519b01dcd01e53c9de13235f36812fb2279a70f74728e765d66145fbe7a5584",
+      "recorded": "2026-11-21",
+      "permission": "Created for the site as a site-owned image. Not a third-party photograph. Crop of the same AI image as the hero."
     }
   }
 }

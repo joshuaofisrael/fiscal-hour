@@ -2,7 +2,8 @@
 title: US industrial production fell 0.4% in October as utilities dropped 4.3%, though
   factory output rose
 date: '2026-11-18T13:50:00.000Z'
-updatedAt: '2026-11-18T13:50:00.000Z'
+updatedAt: '2026-11-21'
+sitemapLastmod: 2026-11-21
 category: Economy
 summary: The Fed's G.17 report shows manufacturing up 0.3%, led by a 4.4% jump in
   motor vehicles and parts, while mining fell 0.8%. Capacity utilisation slipped to
@@ -16,6 +17,10 @@ tags:
 - manufacturing
 - capacity-utilization
 - us-economy
+background:
+- /articles/2026-10-29-fed-holds-funds-rate/
+- /articles/2026-10-30-gdp-advance-third-quarter/
+- /articles/2026-11-11-october-cpi-0-4-percent-core-holds-0-3/
 author: FiscalHour
 hero:
   src: us-industrial-production-october-2026-utilities-fall-hero
@@ -66,6 +71,8 @@ Capacity utilisation for all industry fell to 76.4%, which the Fed says is 3.0 p
 
 Business equipment output rose 1.0% and defence and space equipment 0.9%, but every other major market group declined. Consumer goods production fell 0.7%, as gains in automotive products were outweighed by lower non-energy nondurables and energy. Materials output dropped 0.7%, pulled down by a 2.2% fall in its energy component.
 
-## Why it matters
+## What the release does not say
 
-Utility output swings with the weather, so a big monthly fall there says less about the economy than the factory numbers do. The more telling detail is that manufacturing outside the car sector slipped, and overall capacity use is well below normal, which points to slack rather than strain in US industry.
+The Fed’s release says utility output fell after rising the month before, and it puts capacity use 3.0 points under the 1972 to 2025 average. That comparison is the Fed’s. The G.17 does not say whether the next GDP print will be weak, and this story does not add that claim. Factory output outside motor vehicles slipped 0.1 percent in the same release. That is a narrow monthly move, not a verdict on the expansion.
+
+The figures above are the ones in the 17 November G.17. This 21 November update does not replace them. It points at the earlier readings that sit next to this one: the [October funds-rate decision](/articles/2026-10-29-fed-holds-funds-rate/), the [third-quarter GDP advance estimate](/articles/2026-10-30-gdp-advance-third-quarter/) and the [October CPI](/articles/2026-11-11-october-cpi-0-4-percent-core-holds-0-3/). The next official dates are on the [release calendar](/calendar/).

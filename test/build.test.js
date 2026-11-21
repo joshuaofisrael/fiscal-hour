@@ -401,7 +401,9 @@ test("production build passes and keeps the legal name off the chrome", { timeou
   assert.match(layout, /Not investment advice/);
   assert.match(layout, /\/disclaimer\//);
   assert.match(layout, /Last updated/);
-  assert.match(layout, /relatedPosts/);
+  assert.match(layout, /coveragePlan/);
+  assert.match(layout, /What happened next/);
+  assert.match(layout, /related-heading/);
 
   const draftPath = path.join(root, "src/content/posts/2026-10-24-layout-check.md");
   fs.writeFileSync(
