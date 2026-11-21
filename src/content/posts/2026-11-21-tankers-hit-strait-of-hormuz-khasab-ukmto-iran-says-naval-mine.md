@@ -1,7 +1,7 @@
 ---
 title: Two tanker attacks in one morning near the Strait of Hormuz, and Iran says a tanker hit a naval mine
-date: '2026-11-21T14:50:00.000Z'
-updatedAt: '2026-11-21T14:50:00.000Z'
+date: '2026-11-21T14:40:00.000Z'
+updatedAt: '2026-11-21T14:40:00.000Z'
 category: Markets
 summary: UKMTO says tankers were hit by unknown projectiles 11 and 17 nautical miles from Khasab, Oman, on Saturday, while Iranian state TV says an oil tanker caught fire after hitting a mine east of the strait. No casualties were reported.
 description: UKMTO says tankers were hit by unknown projectiles 11 and 17 nautical miles from Khasab, Oman, on Saturday, while Iranian state TV says an oil tanker caught fire after hitting a mine east of the strait. No casualties were reported.
