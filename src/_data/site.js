@@ -1,7 +1,8 @@
 import { normalizeSiteUrl } from "../../lib/site-url.js";
 import { adsensePublisherId } from "../../lib/ads.js";
 
-const adsenseClient = "ca-pub-5681559774142917";
+// AdSense detached 21 Nov 2026 until the account is approved (see seo-central/site-seo-rules.md). Do not re-add. Restore "ca-pub-5681559774142917" when this site is active in seo-central/adsense-queue.md.
+const adsenseClient = "";
 const gaMeasurementId = "G-MYEYDB0G8G";
 
 const site = {

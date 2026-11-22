@@ -182,8 +182,9 @@ test("production build passes and keeps the legal name off the chrome", { timeou
   );
   assert.equal(Object.hasOwn(homeJson["@graph"].find((node) => node["@type"] === "NewsMediaOrganization"), "sameAs"), false);
   assert.doesNotMatch(home, /Joshua|Ventures|All rights reserved|©/);
-  assert.match(home, new RegExp(`adsbygoogle\\.js\\?client=${escapeRegExp(site.adsenseClient)}`));
-  assert.match(home, new RegExp(`name="google-adsense-account" content="${escapeRegExp(site.adsenseClient)}"`));
+  // AdSense detached 21 Nov 2026 until the account is approved (see seo-central/site-seo-rules.md). Do not re-add.
+  assert.doesNotMatch(home, /adsbygoogle\.js\?client=/);
+  assert.doesNotMatch(home, /name="google-adsense-account"/);
   assert.match(home, /pagead2\.googlesyndication\.com/);
   assert.match(home, /static\.cloudflareinsights\.com/);
   assert.equal(site.gaMeasurementId, "G-MYEYDB0G8G");
@@ -347,9 +348,9 @@ test("production build passes and keeps the legal name off the chrome", { timeou
       assert.doesNotMatch(news, /<url>/);
     }
   }
-  assert.equal(site.adsenseClient, ADSENSE_CLIENT);
-  assert.equal(site.adsensePublisher, "pub-5681559774142917");
-  assert.equal(ads.trim(), `google.com, ${site.adsensePublisher}, DIRECT, ${site.adsenseCertificationAuthorityId}`);
+  assert.equal(site.adsenseClient, "");
+  assert.equal(site.adsensePublisher, "");
+  assert.doesNotMatch(ads, /pub-5681559774142917/);
   assert.match(site.cloudflareAnalyticsToken, /^([0-9a-f]{32})?$/);
 
   for (const url of [
